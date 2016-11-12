@@ -1,4 +1,4 @@
-package com.fows.adapter;
+package com.fows.view;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
