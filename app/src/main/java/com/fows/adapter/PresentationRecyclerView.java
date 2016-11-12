@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by ByJacob on 2016-11-12.
  */
 
-public class PresentationRecyclerView extends RecyclerView.Adapter {
+public class PresentationRecyclerView extends RecyclerView.Adapter{
     private ArrayList<Presentation> presentations;
     private RecyclerView recyclerView;
 

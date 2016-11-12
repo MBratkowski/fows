@@ -9,7 +9,7 @@ public class Prelegent {
     private String company;
     private String urlPersonImage;
     private String urlCompanyImage;
-    private String description;
+    private String information;
 
     public Prelegent(String name, String surname, String company, String urlPersonImage, String urlCompanyImage, String description) {
         this.name = name;
@@ -17,7 +17,7 @@ public class Prelegent {
         this.company = company;
         this.urlPersonImage = urlPersonImage;
         this.urlCompanyImage = urlCompanyImage;
-        this.description = description;
+        this.information = description;
     }
 
     public String getName() {
@@ -33,8 +33,8 @@ public class Prelegent {
     }
 
 
-    public String getDescription() {
-        return description;
+    public String getInformation() {
+        return information;
     }
 
     public String getUrlPersonImage() {

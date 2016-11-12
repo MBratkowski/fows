@@ -3,12 +3,12 @@ package com.fows.entiti;
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
-public class Sponsors {
+public class Sponsor {
     private String name;
     private String urlImage;
     private String information;
 
-    public Sponsors(String name, String urlImage, String information) {
+    public Sponsor(String name, String urlImage, String information) {
         this.name = name;
         this.urlImage = urlImage;
         this.information = information;
