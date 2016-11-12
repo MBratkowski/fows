@@ -1,5 +1,6 @@
 package com.fows.entiti;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -7,22 +8,24 @@ import java.util.List;
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public class Presentation {
-    private List<Prelegent> prelegents;
+    private ArrayList<Prelegent> prelegents;
     private String theme;
     private String information;
     private Date startTime;
     private Date finishTime;
+    private String lang;
 
     //Zobaczymy w trakcie jaki najlepszy konstruktor będzie
-    public Presentation(List<Prelegent> prelegents, String theme, String information, Date startTime, Date finishTime) {
+    public Presentation(ArrayList<Prelegent> prelegents, String theme, String information, Date startTime, Date finishTime, String lang) {
         this.prelegents = prelegents;
         this.theme = theme;
         this.information = information;
         this.startTime = startTime;
         this.finishTime = finishTime;
+        this.lang = lang;
     }
 
-    public List<Prelegent> getPrelegents() {
+    public ArrayList<Prelegent> getPrelegents() {
         return prelegents;
     }
 
@@ -52,5 +55,9 @@ public class Presentation {
 
     public int getDay(){
         return startTime.getDay();
+    }
+
+    public String getLang() {
+        return lang;
     }
 }

@@ -1,7 +1,7 @@
 package com.fows.presenter.base;
 
 import com.fows.presenter.base.definition.BasePresenter;
-import com.fows.view.BaseView;
+import com.fows.adapter.BaseView;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.

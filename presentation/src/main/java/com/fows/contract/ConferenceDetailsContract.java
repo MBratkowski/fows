@@ -1,7 +1,7 @@
 package com.fows.contract;
 
 import com.fows.presenter.base.definition.DataPresenter;
-import com.fows.view.DataView;
+import com.fows.adapter.DataView;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.

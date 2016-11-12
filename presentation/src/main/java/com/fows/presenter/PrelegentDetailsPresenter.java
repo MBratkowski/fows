@@ -11,10 +11,10 @@ import com.fows.presenter.base.definition.DataPresenter;
  */
 public class PrelegentDetailsPresenter extends DataPresenterImpl<View, Void> implements Presenter {
 
-    @Override
+    /*@Override
     public void openPresentationDetails() {
 
-    }
+    }*/
 
     @Override
     public void refresh() {
