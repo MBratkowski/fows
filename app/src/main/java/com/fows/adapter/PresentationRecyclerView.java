@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by ByJacob on 2016-11-12.
  */
 
-public class PresentationRecyclerView extends RecyclerView.Adapter{
+public class PresentationRecyclerView extends RecyclerView.Adapter<PresentationRecyclerView.ViewHolder>{
     private ArrayList<Presentation> presentations;
     private RecyclerView recyclerView;
 
@@ -28,7 +28,7 @@ public class PresentationRecyclerView extends RecyclerView.Adapter{
         this.recyclerView = recyclerView;
     }
 
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_presentation_list, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -36,9 +36,7 @@ public class PresentationRecyclerView extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Presentation presentation= presentations.get(position);
-        for(Prelegent prelegent)
+    public void onBindViewHolder(ViewHolder holder, int position) {
 
     }
 
