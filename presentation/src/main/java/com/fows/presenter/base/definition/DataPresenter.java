@@ -1,6 +1,6 @@
 package com.fows.presenter.base.definition;
 
-import com.fows.adapter.DataView;
+import com.fows.view.DataView;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.

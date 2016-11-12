@@ -1,7 +1,7 @@
 package com.fows.contract;
 
 import com.fows.presenter.base.definition.DataPresenter;
-import com.fows.adapter.DataView;
+import com.fows.view.DataView;
 
 import java.util.List;
 
