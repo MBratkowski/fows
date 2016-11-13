@@ -60,6 +60,7 @@ dependencies {
     final JUNIT_VERSION = '4.12'
     final BUTTERKNIFE_VERSION = '8.4.0'
     final GSON_VERSION = '2.8.0'
+    final CONSTRAINT_LAYOUT_VERSION = '1.0.0-alpha9'
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(":presentation")
@@ -82,4 +83,5 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$SUPPORT_VERSION_LIBRARY"
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
     annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+    compile "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION"
 }
