@@ -1,8 +1,23 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+    }
+}
+
 apply plugin: 'java'
 
 dependencies {
+    final GSON_VERSION = '2.8.0'
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':app')
+    compile project(':domain')
+
+    compile "com.google.code.gson:gson:$GSON_VERSION"
 }
 
 sourceCompatibility = "1.7"
