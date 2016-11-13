@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/presentation_item_height"
-                android:paddingLeft="@dimen/presentation_item_padding"
-                android:paddingRight="@dimen/presentation_item_padding">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/presentation_item_height"
+    android:orientation="vertical"
+    >
+
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/example_icon_lang"
-        android:id="@+id/imageView"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        app:srcCompat="@drawable/ic_presentation"
+        android:id="@+id/langImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/presentation_item_left_margin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/presentation_item_left_margin"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/presentation_item_text_padding"
-        android:columnCount="2"
-        android:rowCount="2"
-        android:useDefaultMargins="true">
+        android:id="@+id/themeTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/presentation_item_text_margin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/presentation_item_text_margin"
+        app:layout_constraintRight_toLeftOf="@+id/timeTextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:text="Architektura aplikacji"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
-        <TextView
-            android:text="15:00-16:00"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/timeTextView"
-            android:layout_alignParentRight="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textSize="@dimen/presentation_item_text_small"/>
+    <TextView
+        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/prelegentsTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/themeTextView"
+        android:layout_marginEnd="@dimen/presentation_item_right_margin"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/presentation_item_right_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        tools:text="Jakub Rosa"/>
 
-        <TextView
-            android:text="Mateusz Bratkowski"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/prelegentsTextView"
-            android:layout_below="@+id/themeTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="@dimen/presentation_item_text_medium"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeTextView"
+        android:layout_marginEnd="@dimen/presentation_item_right_margin"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/presentation_item_right_margin"
+        app:layout_constraintTop_toTopOf="@+id/themeTextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/themeTextView"
+        tools:text="15:00-16:00"/>
 
-        <TextView
-            android:text="Architektura aplikacji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/themeTextView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/timeTextView"
-            android:layout_toStartOf="@+id/timeTextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/presentation_item_text_large"/>
-    </RelativeLayout>
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline4"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="36dp"
+        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintGuide_percent="0.5"
+        />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

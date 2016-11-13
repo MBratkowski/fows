@@ -4,8 +4,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="lang_flag">40dp</dimen>
     <dimen name="presentation_item_height">72dp</dimen>
-    <dimen name="presentation_item_padding">16dp</dimen>
-    <dimen name="presentation_item_text_padding">72dp</dimen>
+    <dimen name="presentation_item_left_margin">16dp</dimen>
+    <dimen name="presentation_item_right_margin">16dp</dimen>
+    <dimen name="presentation_item_text_margin">72dp</dimen>
     <dimen name="presentation_item_text_large">16sp</dimen>
     <dimen name="presentation_item_text_medium">14sp</dimen>
     <dimen name="presentation_item_text_small">12sp</dimen>
