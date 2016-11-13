@@ -1,11 +1,10 @@
 package com.fows.usecase.implementation;
 
-import com.fows.contract.PrelegentListContract;
-import com.fows.contract.PrelegentListContract.Presenter;
 import com.fows.entity.Prelegent;
 import com.fows.entity.gateway.EntitiGateway;
 import com.fows.usecase.definition.Usecase;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -13,18 +12,18 @@ import java.util.List;
  */
 public class PrelegentListUsecase implements Usecase {
 
-    private final PrelegentListContract.Presenter presenter;
+    private final Usecase.Callback callback;
     private final EntitiGateway entitiGateway;
 
-    public PrelegentListUsecase(Presenter presenter, EntitiGateway entitiGateway) {
-        this.presenter = presenter;
+    public PrelegentListUsecase(Usecase.Callback callback, EntitiGateway entitiGateway) {
+        this.callback = callback;
         this.entitiGateway = entitiGateway;
     }
 
     @Override
     public void execute() {
         List<Prelegent> prelegents = entitiGateway.getPrelegenst();
-        presenter.onDataLoaded(prelegents);
+        callback.onSuccess(prelegents);
     }
 
 }
