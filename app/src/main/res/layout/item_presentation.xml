@@ -18,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="@dimen/presentation_item_left_margin"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="@dimen/presentation_item_left_margin"/>
+        android:layout_marginLeft="@dimen/presentation_item_left_margin"
+        />
 
     <TextView
         android:layout_width="0dp"
@@ -33,10 +34,10 @@
         tools:text="Architektura aplikacji"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         android:maxLines="1"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        />
 
     <TextView
-        android:text="TextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/prelegentsTextView"
@@ -47,10 +48,10 @@
         android:layout_marginRight="@dimen/presentation_item_right_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        tools:text="Jakub Rosa"/>
+        tools:text="Jakub Rosa"
+        />
 
     <TextView
-        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timeTextView"
@@ -60,7 +61,8 @@
         app:layout_constraintTop_toTopOf="@+id/themeTextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@+id/themeTextView"
-        tools:text="15:00-16:00"/>
+        tools:text="15:00-16:00"
+        />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
