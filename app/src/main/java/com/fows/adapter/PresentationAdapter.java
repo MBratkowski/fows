@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fows.R;
+import com.fows.entity.Presentation;
 
 import java.util.ArrayList;
 
@@ -19,11 +20,11 @@ import butterknife.ButterKnife;
  * Created by ByJacob on 2016-11-12.
  */
 
-public class PresentationRecyclerView extends RecyclerView.Adapter<PresentationRecyclerView.ViewHolder>{
+public class PresentationAdapter extends RecyclerView.Adapter<PresentationAdapter.ViewHolder>{
     private ArrayList<Presentation> presentations;
     private RecyclerView recyclerView;
 
-    public PresentationRecyclerView(ArrayList<Presentation> presentations, RecyclerView recyclerView) {
+    public PresentationAdapter(ArrayList<Presentation> presentations, RecyclerView recyclerView) {
         this.presentations = presentations;
         this.recyclerView = recyclerView;
     }
