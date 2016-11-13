@@ -24,14 +24,14 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/themeTextView"
+        android:id="@+id/prelegentsCompanyTextView"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="@dimen/presentation_item_text_margin"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="@dimen/presentation_item_text_margin"
         app:layout_constraintRight_toLeftOf="@+id/timeTextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="Architektura aplikacji"
+        tools:text="Nokia"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         android:maxLines="1"
         android:ellipsize="end"
@@ -40,15 +40,17 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/prelegentsTextView"
+        android:id="@+id/themeTextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/themeTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/prelegentsCompanyTextView"
         android:layout_marginEnd="@dimen/presentation_item_right_margin"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/presentation_item_right_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        tools:text="Jakub Rosa"
+        tools:text="Architektura aplikacji w androidzie"
+        android:maxLines="1"
+        android:ellipsize="end"
         />
 
     <TextView
@@ -58,9 +60,9 @@
         android:layout_marginEnd="@dimen/presentation_item_right_margin"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/presentation_item_right_margin"
-        app:layout_constraintTop_toTopOf="@+id/themeTextView"
+        app:layout_constraintTop_toTopOf="@+id/prelegentsCompanyTextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="@+id/themeTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/prelegentsCompanyTextView"
         tools:text="15:00-16:00"
         />
 
