@@ -1,16 +1,18 @@
 package com.fows.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
-import com.fows.contract.PrelegentListContract;
+import com.fows.contract.PrelegentListView;
+import com.fows.di.comoponent.AppComponent;
 import com.fows.entity.Prelegent;
+import com.fows.presenter.PrelegentListPresenter;
 
 import java.util.Collection;
 
-public class PrelegentListActivity extends BaseActivity implements PrelegentListContract.View {
+public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView>
+        implements PrelegentListView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,28 +20,13 @@ public class PrelegentListActivity extends BaseActivity implements PrelegentList
     }
 
     @Override
+    protected void performFieldInjection(AppComponent appComponent) {
+        appComponent.inject(this);
+    }
+
+    @Override
     public int getLayoutId() {
         return R.layout.activity_prelegent_list;
-    }
-
-    @Override
-    public void displayName(String name) {
-
-    }
-
-    @Override
-    public void displaySurname(String surname) {
-
-    }
-
-    @Override
-    public void displayPhoto(String photo) {
-
-    }
-
-    @Override
-    public void openDetails(int prelegentId) {
-
     }
 
     @Override
@@ -59,11 +46,6 @@ public class PrelegentListActivity extends BaseActivity implements PrelegentList
 
     @Override
     public void hideLoading() {
-
-    }
-
-    @Override
-    public void onRefresh() {
 
     }
 

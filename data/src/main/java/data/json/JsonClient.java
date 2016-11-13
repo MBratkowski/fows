@@ -3,23 +3,26 @@ package data.json;
 import com.fows.entity.Prelegent;
 import com.fows.entity.Presentation;
 import com.fows.entity.Sponsor;
-import com.fows.entity.gateway.EntitiGateway;
+import com.fows.gateway.EntityGateway;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import data.json.data.JsonProvider;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class JsonClient implements EntitiGateway {
+public class JsonClient implements EntityGateway {
 
     private final Gson gson = new Gson();
     private final JsonProvider jsonProvider;
 
+    @Inject
     public JsonClient() {
         jsonProvider = new JsonProvider();
     }

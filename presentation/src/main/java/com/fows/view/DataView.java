@@ -12,6 +12,4 @@ public interface DataView<DataType> extends BaseView {
     void showLoading();
 
     void hideLoading();
-
-    void onRefresh();
 }

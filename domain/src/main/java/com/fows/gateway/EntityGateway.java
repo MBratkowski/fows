@@ -1,4 +1,4 @@
-package com.fows.entity.gateway;
+package com.fows.gateway;
 
 import com.fows.entity.Prelegent;
 import com.fows.entity.Presentation;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public interface EntitiGateway {
+public interface EntityGateway {
 
     //FIXME Here should return a Single RxObject
 

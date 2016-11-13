@@ -4,17 +4,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fows.contract.PrelegentListContract;
-import com.fows.contract.PrelegentListContract.Presenter;
+import com.fows.contract.PrelegentListView;
+import com.fows.presenter.PrelegentListPresenter;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
 public class PrelegentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final PrelegentListContract.Presenter presenter;
+    private final PrelegentListPresenter presenter;
 
-    public PrelegentsAdapter(Presenter presenter) {
+    public PrelegentsAdapter(PrelegentListPresenter presenter) {
         this.presenter = presenter;
     }
 

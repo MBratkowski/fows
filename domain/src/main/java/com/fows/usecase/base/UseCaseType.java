@@ -1,9 +1,9 @@
-package com.fows.usecase.definition;
+package com.fows.usecase.base;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public enum UsecaseType {
+public enum UseCaseType {
     SHOW_PRELGENT_LIST,
     SHOW_PRELGENT_DETIALS,
     SHOW_PRESENTATION_LIST,

@@ -1,4 +1,4 @@
-package com.fows.entity.gateway;
+package com.fows.gateway;
 
 /**
  * Created by ByJacob on 2016-11-12.

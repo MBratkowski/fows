@@ -1,12 +1,12 @@
 package com.fows.presenter.base;
 
-import com.fows.presenter.base.definition.BasePresenter;
+import com.fows.presenter.base.definition.Presenter;
 import com.fows.view.BaseView;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
-public abstract class BasePresenterImpl<ViewType extends BaseView> implements BasePresenter<ViewType> {
+public abstract class BasePresenter<ViewType extends BaseView> implements Presenter<ViewType> {
 
     protected ViewType view;
 

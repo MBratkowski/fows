@@ -1,23 +1,32 @@
 package com.fows.presenter;
 
-import com.fows.contract.PrelegentDetailsContract;
-import com.fows.contract.PrelegentListContract;
+import com.fows.UseCaseFactory;
+import com.fows.contract.PrelegentListView;
 import com.fows.entity.Prelegent;
-import com.fows.presenter.base.DataPresenterImpl;
-import com.fows.presenter.base.definition.DataPresenter;
-import com.fows.usecase.definition.Usecase;
+import com.fows.presenter.base.DataPresenter;
+import com.fows.usecase.base.UseCase;
 
 import java.util.Collection;
+
+import javax.inject.Inject;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class PrelegentListPresenter extends DataPresenterImpl<PrelegentListContract.View, Collection<Prelegent>>
-        implements PrelegentListContract.Presenter, Usecase.Callback<Collection<Prelegent>> {
+public class PrelegentListPresenter extends DataPresenter<PrelegentListView, Collection<Prelegent>>
+        implements UseCase.Callback<Collection<Prelegent>> {
+
+    private final UseCaseFactory factory;
+
+    @Inject
+    public PrelegentListPresenter(UseCaseFactory factory) {
+        this.factory = factory;
+    }
 
     @Override
-    public void refresh() {
-        // Do nothing
+    public void takeView(PrelegentListView view) {
+        super.takeView(view);
+        factory.getPrelegentsListUseCase(this).execute();
     }
 
     @Override

@@ -3,14 +3,14 @@ package data.database;
 import com.fows.entity.Prelegent;
 import com.fows.entity.Presentation;
 import com.fows.entity.Sponsor;
-import com.fows.entity.gateway.EntitiGateway;
+import com.fows.gateway.EntityGateway;
 
 import java.util.List;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class DatabaseProvider implements EntitiGateway {
+public class DatabaseProvider implements EntityGateway {
 
     @Override
     public List<Prelegent> getPrelegenst() {
