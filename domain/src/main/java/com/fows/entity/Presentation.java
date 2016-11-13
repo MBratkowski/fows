@@ -1,19 +1,28 @@
-package com.fows.entiti;
+package com.fows.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public class Presentation {
+
     private ArrayList<Prelegent> prelegents;
+
     private String theme;
+
     private String information;
+
     private Date startTime;
+
     private Date finishTime;
+
     private String lang;
+
+    private boolean isLiked;
+
+    private float rating;
 
     //Zobaczymy w trakcie jaki najlepszy konstruktor będzie
     public Presentation(ArrayList<Prelegent> prelegents, String theme, String information, Date startTime, Date finishTime, String lang) {
@@ -37,23 +46,23 @@ public class Presentation {
         return information;
     }
 
-    public int getHourStart(){
+    public int getHourStart() {
         return startTime.getHours();
     }
 
-    public int getMinuteStart(){
+    public int getMinuteStart() {
         return startTime.getMinutes();
     }
 
-    public int getHourTime(){
+    public int getHourTime() {
         return finishTime.getHours();
     }
 
-    public int getMinuteTime(){
+    public int getMinuteTime() {
         return finishTime.getMinutes();
     }
 
-    public int getDay(){
+    public int getDay() {
         return startTime.getDay();
     }
 

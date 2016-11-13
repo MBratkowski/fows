@@ -1,11 +1,14 @@
-package com.fows.entiti;
+package com.fows.entity;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public class Sponsor {
+
     private String name;
+
     private String urlImage;
+
     private String information;
 
     public Sponsor(String name, String urlImage, String information) {
