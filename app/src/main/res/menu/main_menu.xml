@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/register"
+          android:id="@+id/register"
+          android:enabled="false"/>
+    <item android:title="@string/agenda"
+          android:id="@+id/agenda"
+          android:enabled="true"/>
+    <item android:title="@string/prelegents"
+          android:id="@+id/prelegents"
+          android:enabled="true"/>
+    <item android:title="@string/sponsors"
+          android:id="@+id/sponsors"
+          android:enabled="true"/>
+    <item android:title="@string/contest"
+          android:id="@+id/contest"
+          android:enabled="true"/>
+    <item android:title="@string/map"
+          android:id="@+id/map"
+          android:enabled="true"/>
+    <item android:title="@string/information"
+          android:id="@+id/information"
+          android:enabled="true"/>
+    <item android:title="@string/links"
+          android:id="@+id/links"
+          android:enabled="true"/>
+</menu>

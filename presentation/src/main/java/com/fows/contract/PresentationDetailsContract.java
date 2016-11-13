@@ -1,6 +1,5 @@
 package com.fows.contract;
 
-import com.fows.presenter.base.definition.BasePresenter;
 import com.fows.presenter.base.definition.DataPresenter;
 import com.fows.view.DataView;
 

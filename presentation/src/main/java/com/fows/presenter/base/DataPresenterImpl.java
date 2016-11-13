@@ -1,8 +1,6 @@
 package com.fows.presenter.base;
 
-import com.fows.presenter.base.definition.BasePresenter;
 import com.fows.presenter.base.definition.DataPresenter;
-import com.fows.view.BaseView;
 import com.fows.view.DataView;
 
 /**
