@@ -28,7 +28,7 @@ public class JsonClient implements EntityGateway {
     }
 
     @Override
-    public List<Prelegent> getPrelegenst() {
+    public List<Prelegent> getPrelegents() {
         List<Prelegent> prelegents = new ArrayList<Prelegent>();
         try {
             prelegents = gson.fromJson(jsonProvider.getFileWithName("prelegent_list.json"), Prelegent.class);

@@ -10,11 +10,5 @@ import java.util.List;
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public interface PrelegentListView extends DataView<Collection<Prelegent>> {
-    /*void displayName(String name);
-
-    void displaySurname(String surname);
-
-    void displayPhoto(String photo);
-
-    void openDetails(int prelegentId);*/
+    //TODO Here should add the correct methods
 }

@@ -8,8 +8,8 @@ import com.fows.view.DataView;
 public abstract class DataPresenter<ViewType extends DataView, DataType> extends BasePresenter<ViewType> {
 
     @Override
-    public void takeView(ViewType view) {
-        super.takeView(view);
+    protected void onTakeView(ViewType view) {
+        super.onTakeView(view);
         if (view != null) {
             view.showLoading();
         }

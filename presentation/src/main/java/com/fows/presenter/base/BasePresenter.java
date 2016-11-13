@@ -11,8 +11,9 @@ public abstract class BasePresenter<ViewType extends BaseView> implements Presen
     protected ViewType view;
 
     @Override
-    public void takeView(ViewType view) {
+    public final void takeView(ViewType view) {
         this.view = view;
+        onTakeView(view);
     }
 
     @Override
@@ -25,5 +26,9 @@ public abstract class BasePresenter<ViewType extends BaseView> implements Presen
         if (view != null) {
             view.showError();
         }
+    }
+
+    protected void onTakeView(ViewType view) {
+        // Optional method to use by implementation class
     }
 }

@@ -13,7 +13,7 @@ public interface EntityGateway {
 
     //FIXME Here should return a Single RxObject
 
-    List<Prelegent> getPrelegenst();
+    List<Prelegent> getPrelegents();
 
     List<Presentation> getPresentations();
 

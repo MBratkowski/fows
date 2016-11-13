@@ -21,7 +21,7 @@ public class PrelegentListUseCase implements UseCase {
 
     @Override
     public void execute() {
-        List<Prelegent> prelegents = entityGateway.getPrelegenst();
+        List<Prelegent> prelegents = entityGateway.getPrelegents();
         callback.onSuccess(prelegents);
     }
 

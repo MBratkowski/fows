@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity">
-        </activity>
-        <activity android:name=".activity.PrelegentDetailsActivity">
-        </activity>
-        <activity android:name=".activity.PresentationListActivity">
-        </activity>
-        <activity android:name=".activity.PresentationDetailsActivity">
-        </activity>
     </application>
 
 </manifest>

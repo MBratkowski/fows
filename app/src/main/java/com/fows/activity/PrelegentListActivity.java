@@ -11,8 +11,7 @@ import com.fows.presenter.PrelegentListPresenter;
 
 import java.util.Collection;
 
-public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView>
-        implements PrelegentListView {
+public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView> implements PrelegentListView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,26 +30,26 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     public void bindData(Collection<Prelegent> prelegents) {
-
+        //TODO
     }
 
     @Override
     public void showEmpty() {
-
+        //TODO
     }
 
     @Override
     public void showLoading() {
-
+        //TODO
     }
 
     @Override
     public void hideLoading() {
-
+        //TODO
     }
 
     @Override
     public void showError() {
-
+        //TODO
     }
 }

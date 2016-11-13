@@ -23,9 +23,9 @@ public class PrelegentListPresenter extends DataPresenter<PrelegentListView, Col
         this.factory = factory;
     }
 
-    @Override
-    public void takeView(PrelegentListView view) {
-        super.takeView(view);
+
+    public void onTakeView(PrelegentListView view) {
+        super.onTakeView(view);
         factory.getPrelegentsListUseCase(this).execute();
     }
 
