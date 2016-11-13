@@ -1,15 +1,17 @@
 package com.fows.contract;
 
-import com.fows.presenter.base.definition.BasePresenter;
+import com.fows.entity.Prelegent;
 import com.fows.presenter.base.definition.DataPresenter;
 import com.fows.view.DataView;
+
+import java.util.Collection;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public interface PrelegentListContract {
 
-    interface View extends DataView<Void> {
+    interface View extends DataView<Collection<Prelegent>> {
 
         void displayName(String name);
 
@@ -20,6 +22,6 @@ public interface PrelegentListContract {
         void openDetails(int prelegentId);
     }
 
-    interface Presenter extends DataPresenter<View, Void> {
+    interface Presenter extends DataPresenter<View, Collection<Prelegent>> {
     }
 }
