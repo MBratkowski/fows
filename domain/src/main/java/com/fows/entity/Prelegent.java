@@ -5,6 +5,53 @@ package com.fows.entity;
  */
 public class Prelegent {
 
+    public static class Builder {
+
+        private int id;
+
+        private String name;
+
+        private String surname;
+
+        private String company;
+
+        private String urlPersonImage;
+
+        private String urlCompanyImage;
+
+        private String information;
+
+        public Builder(int id, String name, String surname) {
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+        }
+
+        public Builder company(String company) {
+            this.company = company;
+            return this;
+        }
+
+        public Builder personImage(String urlPersonImage) {
+            this.urlPersonImage = urlPersonImage;
+            return this;
+        }
+
+        public Builder companyImage(String urlCompanyImage) {
+            this.urlCompanyImage = urlCompanyImage;
+            return this;
+        }
+
+        public Builder information(String information) {
+            this.information = information;
+            return this;
+        }
+
+        public Prelegent build() {
+            return new Prelegent(this);
+        }
+    }
+
     private int id;
 
     private String name;
@@ -18,6 +65,17 @@ public class Prelegent {
     private String urlCompanyImage;
 
     private String information;
+
+    public Prelegent(Builder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.company = builder.company;
+        this.urlCompanyImage = builder.urlCompanyImage;
+        this.urlPersonImage = builder.urlPersonImage;
+        this.information = builder.information;
+    }
+
 
     public Prelegent(String name, String surname, String company, String urlPersonImage, String urlCompanyImage, String information) {
         this.name = name;
