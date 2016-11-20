@@ -14,7 +14,7 @@ public class Presenter<ViewType extends BaseView> {
         onTakeView(view);
     }
 
-    public void dropView() {
+    public final void dropView() {
         this.view = null;
     }
 
