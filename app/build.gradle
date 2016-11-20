@@ -59,6 +59,7 @@ dependencies {
     final SUPPORT_VERSION_LIBRARY = '25.0.0'
     final BUTTERKNIFE_VERSION = '8.4.0'
     final DAGGER_VERSION = '2.7'
+    final CIRCLE_IMAGE_VIEW = '2.1.0'
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(":presentation")
@@ -80,4 +81,7 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
     provided "javax.annotation:jsr250-api:1.0"
+
+    compile "com.android.support.constraint:constraint-layout:1.0.0-beta3"
+    compile "de.hdodenhof:circleimageview:2.1.0"
 }

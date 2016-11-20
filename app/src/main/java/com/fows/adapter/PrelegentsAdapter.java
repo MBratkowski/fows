@@ -1,10 +1,17 @@
 package com.fows.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.fows.presenter.PrelegentListPresenter;
+import com.fows.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -13,13 +20,16 @@ public class PrelegentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     private final PrelegentListPresenter presenter;
 
+
     public PrelegentsAdapter(PrelegentListPresenter presenter) {
         this.presenter = presenter;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_prelegent, parent, false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override
@@ -32,11 +42,17 @@ public class PrelegentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.prelegentImageView)
+        CircleImageView prelegentImageView;
+        @BindView(R.id.prelegentTextView)
+        TextView prelegentTextView;
+        @BindView(R.id.companyTextView)
+        TextView companyTextView;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+        ViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
         }
     }
-
 }
