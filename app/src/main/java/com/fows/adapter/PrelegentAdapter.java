@@ -19,29 +19,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.PrelegentViewHolder> {
 
-    private final PrelegentListPresenter presenter;
-
-    public PrelegentAdapter(PrelegentListPresenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
-    public PrelegentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_prelegent, parent, false);
-        PrelegentViewHolder holder = new PrelegentViewHolder(view);
-        return holder;
-    }
-
-    @Override
-    public void onBindViewHolder(PrelegentViewHolder holder, int position) {
-        presenter.configureRow(holder, position);
-    }
-
-    @Override
-    public int getItemCount() {
-        return presenter.getPrelegentsCount();
-    }
-
     public static class PrelegentViewHolder extends RecyclerView.ViewHolder implements PrelegentListRowView {
 
         @BindView(R.id.prelegent_image_view)
@@ -75,5 +52,28 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
         public void displaySurname(String surname) {
             surnameTextView.setText(surname);
         }
+    }
+
+    private final PrelegentListPresenter presenter;
+
+    public PrelegentAdapter(PrelegentListPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public PrelegentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_prelegent, parent, false);
+        PrelegentViewHolder holder = new PrelegentViewHolder(view);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(PrelegentViewHolder holder, int position) {
+        presenter.configureRow(holder, position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return presenter.getPrelegentsCount();
     }
 }
