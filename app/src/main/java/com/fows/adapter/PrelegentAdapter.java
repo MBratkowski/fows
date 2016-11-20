@@ -69,7 +69,7 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
 
     @Override
     public void onBindViewHolder(PrelegentViewHolder holder, int position) {
-        presenter.configureRow(holder, position);
+        presenter.configurePrelegentRow(holder, position);
     }
 
     @Override

@@ -41,7 +41,7 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
         return prelegents.size();
     }
 
-    public void configureRow(PrelegentListRowView view, int position) {
+    public void configurePrelegentRow(PrelegentListRowView view, int position) {
         view.displayName(prelegents.get(position).getName());
         view.displaySurname(prelegents.get(position).getSurname());
     }
