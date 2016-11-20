@@ -34,6 +34,7 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
 
     @Override
     public void onError(Throwable throwable) {
+        super.onError(throwable);
         view.showError();
     }
 
@@ -44,5 +45,9 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     public void configureRow(PrelegentListRowView view, int position) {
         view.displayName(prelegents.get(position).getName());
         view.displaySurname(prelegents.get(position).getSurname());
+    }
+
+    public void itemClick(int position) {
+        view.showDetails(prelegents.get(position).getId());
     }
 }

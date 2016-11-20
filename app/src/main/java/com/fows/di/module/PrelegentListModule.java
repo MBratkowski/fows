@@ -14,6 +14,7 @@ import data.prelegent.PrelegentClient;
  */
 @Module
 public class PrelegentListModule {
+
     @Provides
     @ActivityScope
     PrelegentGateway provideEntityGateway(PrelegentClient prelegentClient) {
