@@ -19,12 +19,12 @@ import butterknife.BindView;
 
 public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView> implements PrelegentListView {
 
-    @BindView(R.id.prelegents_recycler_view)
+    @BindView(R.id.prelegent_recycler_view)
     RecyclerView prelegentsRecyclerView;
 
     @Inject
     PrelegentListPresenter presenter;
-    
+
     private PrelegentAdapter adapter;
 
     @Override
