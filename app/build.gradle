@@ -27,7 +27,7 @@ android {
         versionName "0.1"
 
         jackOptions {
-            enabled true
+            enabled false
         }
     }
 
@@ -39,8 +39,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     dexOptions {
@@ -57,33 +57,31 @@ android {
 
 dependencies {
     final SUPPORT_VERSION_LIBRARY = '25.0.0'
-    final JUNIT_VERSION = '4.12'
     final BUTTERKNIFE_VERSION = '8.4.0'
-    final GSON_VERSION = '2.8.0'
-    final CONSTRAINT_LAYOUT_VERSION = '1.0.0-beta3'
+    final DAGGER_VERSION = '2.7'
     final CIRCLE_IMAGE_VIEW = '2.1.0'
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(":presentation")
+    compile project(":data")
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    testCompile "junit:junit:4.12"
+
     compile "com.android.support:appcompat-v7:$SUPPORT_VERSION_LIBRARY"
-
-    /*compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.squareup.okhttp3:okhttp:3.4.2'
-    compile 'io.reactivex.rxjava2:rxjava:2.0.0'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.0'*/
-
-    testCompile "junit:junit:$JUNIT_VERSION"
-
     compile "com.android.support:gridlayout-v7:$SUPPORT_VERSION_LIBRARY"
     compile "com.android.support:recyclerview-v7:$SUPPORT_VERSION_LIBRARY"
+
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
     annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
-    compile "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION"
-    compile "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VIEW"
+
+    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
+    provided "javax.annotation:jsr250-api:1.0"
+
+    compile "com.android.support.constraint:constraint-layout:1.0.0-beta3"
+    compile "de.hdodenhof:circleimageview:2.1.0"
 }

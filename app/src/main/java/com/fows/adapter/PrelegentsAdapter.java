@@ -6,9 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.fows.presenter.PrelegentListPresenter;
 import com.fows.R;
-import com.fows.contract.PrelegentListContract;
-import com.fows.contract.PrelegentListContract.Presenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,9 +18,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class PrelegentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final Presenter presenter;
+    private final PrelegentListPresenter presenter;
 
-    public PrelegentsAdapter(Presenter presenter) {
+
+    public PrelegentsAdapter(PrelegentListPresenter presenter) {
         this.presenter = presenter;
     }
 
@@ -42,9 +42,7 @@ public class PrelegentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return 0;
     }
 
-    static
-
-    class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.prelegentImageView)
         CircleImageView prelegentImageView;
         @BindView(R.id.prelegentTextView)

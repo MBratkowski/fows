@@ -1,74 +1,55 @@
 package com.fows.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
-import com.fows.contract.PrelegentListContract;
+import com.fows.di.comoponent.AppComponent;
+import com.fows.di.module.PrelegentListModule;
 import com.fows.entity.Prelegent;
+import com.fows.presenter.PrelegentListPresenter;
+import com.fows.view.PrelegentListView;
 
 import java.util.Collection;
 
-public class PrelegentListActivity extends BaseActivity implements PrelegentListContract.View {
+import javax.inject.Inject;
+
+public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView> implements PrelegentListView {
+
+    @Inject
+    PrelegentListPresenter presenter;
+
+    private static final String TAG = PrelegentListActivity.class.getSimpleName();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onBindData(Collection<Prelegent> prelegents) {
+        for (Prelegent prelegent : prelegents) {
+            Log.d(TAG, String.format("%d %s %s", prelegent.getId(), prelegent.getName(), prelegent.getSurname()));
+        }
+    }
+
+    @Override
+    public void showError() {
+        //TODO
+    }
+
+    @Override
+    public void showLoading() {
+        //TODO
+    }
+
+    @Override
+    public void hideLoading() {
+        //TODO
+    }
+
+    @Override
+    protected void performFieldInjection(AppComponent appComponent) {
+        appComponent.plus(new PrelegentListModule()).inject(this);
     }
 
     @Override
     public int getLayoutId() {
         return R.layout.activity_prelegent_list;
-    }
-
-    @Override
-    public void displayName(String name) {
-
-    }
-
-    @Override
-    public void displaySurname(String surname) {
-
-    }
-
-    @Override
-    public void displayPhoto(String photo) {
-
-    }
-
-    @Override
-    public void openDetails(int prelegentId) {
-
-    }
-
-    @Override
-    public void bindData(Collection<Prelegent> prelegents) {
-
-    }
-
-    @Override
-    public void showEmpty() {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void onRefresh() {
-
-    }
-
-    @Override
-    public void showError() {
-
     }
 }

@@ -1,9 +1,9 @@
-package com.fows.usecase.definition;
+package com.fows.usecase.base;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public interface Usecase{
+public interface UseCase {
 
     interface Callback<DataType> {
 
