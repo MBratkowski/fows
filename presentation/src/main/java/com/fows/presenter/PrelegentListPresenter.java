@@ -3,18 +3,18 @@ package com.fows.presenter;
 import com.fows.UseCaseFactory;
 import com.fows.entity.Prelegent;
 import com.fows.usecase.base.UseCase;
+import com.fows.view.PrelegentListRowView;
 import com.fows.view.PrelegentListView;
 
-import java.util.Collection;
-
-import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class PrelegentListPresenter extends Presenter<PrelegentListView> implements UseCase.Callback<Collection<Prelegent>> {
+public class PrelegentListPresenter extends Presenter<PrelegentListView> implements UseCase.Callback<List<Prelegent>> {
 
     private final UseCaseFactory factory;
+    private List<Prelegent> prelegents;
 
     public PrelegentListPresenter(UseCaseFactory factory) {
         this.factory = factory;
@@ -27,13 +27,22 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     }
 
     @Override
-    public void onSuccess(Collection<Prelegent> prelegents) {
+    public void onSuccess(List<Prelegent> prelegents) {
+        this.prelegents = prelegents;
         view.hideLoading();
-        view.onBindData(prelegents);
     }
 
     @Override
     public void onError(Throwable throwable) {
         view.showError();
+    }
+
+    public int getPrelegentsCount() {
+        return prelegents.size();
+    }
+
+    public void configureRow(PrelegentListRowView view, int position) {
+        view.displayName(prelegents.get(position).getName());
+        view.displaySurname(prelegents.get(position).getSurname());
     }
 }
