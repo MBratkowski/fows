@@ -1,40 +1,35 @@
 package com.fows.activity;
 
-import android.os.Bundle;
+import android.util.Log;
 
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
-import com.fows.contract.PrelegentListView;
 import com.fows.di.comoponent.AppComponent;
+import com.fows.di.module.PrelegentListModule;
 import com.fows.entity.Prelegent;
 import com.fows.presenter.PrelegentListPresenter;
+import com.fows.view.PrelegentListView;
 
 import java.util.Collection;
 
+import javax.inject.Inject;
+
 public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView> implements PrelegentListView {
 
+    @Inject
+    PrelegentListPresenter presenter;
+
+    private static final String TAG = PrelegentListActivity.class.getSimpleName();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onBindData(Collection<Prelegent> prelegents) {
+        for (Prelegent prelegent : prelegents) {
+            Log.d(TAG, String.format("%d %s %s", prelegent.getId(), prelegent.getName(), prelegent.getSurname()));
+        }
     }
 
     @Override
-    protected void performFieldInjection(AppComponent appComponent) {
-        appComponent.inject(this);
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_prelegent_list;
-    }
-
-    @Override
-    public void bindData(Collection<Prelegent> prelegents) {
-        //TODO
-    }
-
-    @Override
-    public void showEmpty() {
+    public void showError() {
         //TODO
     }
 
@@ -49,7 +44,12 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     }
 
     @Override
-    public void showError() {
-        //TODO
+    protected void performFieldInjection(AppComponent appComponent) {
+        appComponent.plus(new PrelegentListModule()).inject(this);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_prelegent_list;
     }
 }

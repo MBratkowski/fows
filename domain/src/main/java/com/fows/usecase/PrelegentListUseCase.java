@@ -1,7 +1,7 @@
 package com.fows.usecase;
 
 import com.fows.entity.Prelegent;
-import com.fows.gateway.EntityGateway;
+import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.base.UseCase;
 
 import java.util.List;
@@ -11,18 +11,16 @@ import java.util.List;
  */
 public class PrelegentListUseCase implements UseCase {
 
-    private final EntityGateway entityGateway;
+    private final PrelegentGateway entityGateway;
     private final UseCase.Callback callback;
 
-    public PrelegentListUseCase(EntityGateway entityGateway, Callback callback) {
+    public PrelegentListUseCase(PrelegentGateway entityGateway, Callback callback) {
         this.entityGateway = entityGateway;
         this.callback = callback;
     }
 
     @Override
     public void execute() {
-        List<Prelegent> prelegents = entityGateway.getPrelegents();
-        callback.onSuccess(prelegents);
+        callback.onSuccess(entityGateway.getPrelegents());
     }
-
 }

@@ -1,17 +1,17 @@
 package com.fows;
 
-import com.fows.gateway.EntityGateway;
-import com.fows.usecase.base.UseCase;
+import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.PrelegentListUseCase;
+import com.fows.usecase.base.UseCase;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
 public class UseCaseFactory {
 
-    private final EntityGateway entityGateway;
+    private final PrelegentGateway entityGateway;
 
-    public UseCaseFactory(EntityGateway entityGateway) {
+    public UseCaseFactory(PrelegentGateway entityGateway) {
         this.entityGateway = entityGateway;
     }
 

@@ -9,7 +9,7 @@ import com.fows.application.FowsApplication;
 import com.fows.di.comoponent.AppComponent;
 import com.fows.di.comoponent.DaggerAppComponent;
 import com.fows.di.module.AppModule;
-import com.fows.presenter.base.definition.Presenter;
+import com.fows.presenter.Presenter;
 import com.fows.view.BaseView;
 
 import javax.inject.Inject;
@@ -42,8 +42,12 @@ public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> e
 
     @Override
     protected void onDestroy() {
-        presenter.dropView();
         super.onDestroy();
+        presenter.dropView();
+    }
+
+    public P getPresenter() {
+        return presenter;
     }
 
     protected AppComponent getAppComponent() {
