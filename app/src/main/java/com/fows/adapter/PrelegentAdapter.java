@@ -13,6 +13,7 @@ import com.fows.view.PrelegentListRowView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -45,7 +46,7 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
     public static class PrelegentViewHolder extends RecyclerView.ViewHolder implements PrelegentListRowView {
 
         @BindView(R.id.prelegentImageView)
-        ImageView prelegentImageView;
+        CircleImageView prelegentCircleImageView;
 
         @BindView(R.id.nameTextView)
         TextView nameTextView;
@@ -63,7 +64,7 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
 
         @Override
         public void displayPhoto(String urlPhoto) {
-
+            //TODO Load photo with use a Picasso or different image library
         }
 
         @Override
