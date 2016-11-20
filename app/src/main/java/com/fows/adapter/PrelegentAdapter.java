@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fows.R;
@@ -45,16 +44,16 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
 
     public static class PrelegentViewHolder extends RecyclerView.ViewHolder implements PrelegentListRowView {
 
-        @BindView(R.id.prelegentImageView)
+        @BindView(R.id.prelegent_image_view)
         CircleImageView prelegentCircleImageView;
 
-        @BindView(R.id.nameTextView)
+        @BindView(R.id.name_text_view)
         TextView nameTextView;
 
-        @BindView(R.id.surnameTextView)
+        @BindView(R.id.surname_text_view)
         TextView surnameTextView;
 
-        @BindView(R.id.companyTextView)
+        @BindView(R.id.company_text_view)
         TextView companyTextView;
 
         PrelegentViewHolder(View view) {
