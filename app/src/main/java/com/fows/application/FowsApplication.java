@@ -12,20 +12,9 @@ import com.fows.di.module.AppModule;
  */
 public class FowsApplication extends Application {
 
-    private AppComponent appComponent;
-
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent.builder().appModule(new AppModule(this))
-                .build();
-    }
-
-    public AppComponent getAppComponent() {
-        return appComponent;
-    }
-
-    public static FowsApplication get(Context context) {
-        return (FowsApplication) context.getApplicationContext();
+        FowsInjector.INSTANCE.initAppComponent(this);
     }
 }
