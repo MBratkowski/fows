@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.fows"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="com.fows"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:name=".application.FowsApplication"
@@ -19,8 +20,7 @@
 
         <activity
             android:name=".activity.PrelegentDetailsActivity"
+            android:label="@string/activity_prelegent_details_title"
             />
     </application>
-
-
 </manifest>
