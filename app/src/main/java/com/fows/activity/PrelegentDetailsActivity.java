@@ -2,7 +2,9 @@ package com.fows.activity;
 
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
+import com.fows.di.comoponent.ActivityComponent;
 import com.fows.di.comoponent.AppComponent;
+import com.fows.di.module.PrelegentDetailsModule;
 import com.fows.presenter.PrelegentDetailsPresenter;
 import com.fows.view.PrelegentDetailsView;
 
@@ -12,14 +14,26 @@ import com.fows.view.PrelegentDetailsView;
 public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPresenter, PrelegentDetailsView>
         implements PrelegentDetailsView {
 
+    public static final String EXTRA_PRELGENT_ID = "EXTRA_PRELEGENT_ID";
+
     @Override
     public void showError() {
 
     }
 
     @Override
-    protected void performFieldInjection(AppComponent appComponent) {
+    public void showLoading() {
 
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    protected void performFieldInjection(ActivityComponent appComponent) {
+        appComponent.plus(new PrelegentDetailsModule()).inject(this);
     }
 
     @Override
