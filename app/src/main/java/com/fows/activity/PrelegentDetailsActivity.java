@@ -18,17 +18,17 @@ public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPrese
 
     @Override
     public void showError() {
-
+        //TODO
     }
 
     @Override
     public void showLoading() {
-
+        //TODO
     }
 
     @Override
     public void hideLoading() {
-
+        //TODO
     }
 
     @Override
