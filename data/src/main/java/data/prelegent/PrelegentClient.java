@@ -29,7 +29,11 @@ public class PrelegentClient implements PrelegentGateway {
 
     @Override
     public Prelegent getPrelegent(int prelegentId) {
-        //TODO
+        for (Prelegent prelegent : provider.getPrelegents()) {
+            if (prelegent.getId() == prelegentId) {
+                return prelegent;
+            }
+        }
         return null;
     }
 }
