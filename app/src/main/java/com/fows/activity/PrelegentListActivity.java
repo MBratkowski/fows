@@ -14,6 +14,7 @@ import com.fows.di.comoponent.ActivityComponent;
 import com.fows.di.comoponent.AppComponent;
 import com.fows.di.module.ActivityModule;
 import com.fows.di.module.PrelegentListModule;
+import com.fows.navigator.Navigator;
 import com.fows.presenter.PrelegentListPresenter;
 import com.fows.view.PrelegentListView;
 
@@ -38,9 +39,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     public void showDetails(int prelegentId) {
-        Intent intent = new Intent(this, PrelegentDetailsActivity.class);
-        intent.putExtra(PrelegentDetailsActivity.EXTRA_PRELGENT_ID, prelegentId);
-        startActivity(intent);
+        Navigator.startPrelegentDetailsActivty(this, prelegentId);
     }
 
     @Override
