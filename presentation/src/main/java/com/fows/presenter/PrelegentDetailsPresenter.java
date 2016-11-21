@@ -14,7 +14,6 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
 
     private final UseCaseFactory factory;
     private final int prelegentId;
-    private Prelegent prelegent;
 
     public PrelegentDetailsPresenter(UseCaseFactory factory, int prelegentId) {
         this.factory = factory;
@@ -25,7 +24,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     protected void onTakeView(PrelegentDetailsView view) {
         super.onTakeView(view);
         view.showLoading();
-        factory.getPrelegentDetailsUseCase(this, prelegentId);
+        factory.getPrelegentDetailsUseCase(this, prelegentId).execute();
     }
 
     @Override
@@ -37,6 +36,9 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     @Override
     public void onSuccess(Prelegent prelegent) {
         view.hideLoading();
-        this.prelegent = prelegent;
+        //view.displayDescription(prelegent.getInformation());
+        view.displayName(prelegent.getName());
+        view.displaySurname(prelegent.getSurname());
+        //view.displayPhoto(prelegent.getUrlPersonImage());
     }
 }
