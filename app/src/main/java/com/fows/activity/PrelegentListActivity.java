@@ -10,7 +10,9 @@ import android.view.View;
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
 import com.fows.adapter.PrelegentAdapter;
+import com.fows.di.comoponent.ActivityComponent;
 import com.fows.di.comoponent.AppComponent;
+import com.fows.di.module.ActivityModule;
 import com.fows.di.module.PrelegentListModule;
 import com.fows.presenter.PrelegentListPresenter;
 import com.fows.view.PrelegentListView;
@@ -37,7 +39,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     @Override
     public void showDetails(int prelegentId) {
         Intent intent = new Intent(this, PrelegentDetailsActivity.class);
-        intent.putExtra("PRELEGENT_ID", prelegentId);
+        intent.putExtra(PrelegentDetailsActivity.EXTRA_PRELGENT_ID, prelegentId);
         startActivity(intent);
     }
 
@@ -57,8 +59,8 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     }
 
     @Override
-    protected void performFieldInjection(AppComponent appComponent) {
-        appComponent.plus(new PrelegentListModule()).inject(this);
+    protected void performFieldInjection(ActivityComponent activityComponent) {
+        activityComponent.plus(new PrelegentListModule()).inject(this);
     }
 
     @Override
