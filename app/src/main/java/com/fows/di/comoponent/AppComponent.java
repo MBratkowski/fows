@@ -1,6 +1,7 @@
 package com.fows.di.comoponent;
 
 import com.fows.application.FowsApplication;
+import com.fows.di.module.ActivityModule;
 import com.fows.di.module.AppModule;
 import com.fows.di.module.PrelegentListModule;
 
@@ -15,6 +16,4 @@ import dagger.Component;
 @Component(modules = AppModule.class)
 public interface AppComponent {
     void inject(FowsApplication application);
-
-    PrelegentListComponent plus(PrelegentListModule module);
 }
