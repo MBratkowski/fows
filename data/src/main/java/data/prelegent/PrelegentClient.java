@@ -2,13 +2,12 @@ package data.prelegent;
 
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
-import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import rx.Observable;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -23,13 +22,12 @@ public class PrelegentClient implements PrelegentGateway {
     }
 
     @Override
-    public List<Prelegent> getPrelegents() {
-        return provider.getPrelegents();
+    public Observable<List<Prelegent>> getPrelegents() {
+        return Observable.from(provider.getPrelegents()).toList();
     }
 
     @Override
-    public Prelegent getPrelegent(int prelegentId) {
-        //TODO
-        return null;
+    public Observable<Prelegent> getPrelegent(int prelegentId) {
+        return Observable.just(provider.getPrelegents().get(prelegentId));
     }
 }
