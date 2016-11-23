@@ -2,6 +2,7 @@ package com.fows.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -44,7 +45,7 @@ public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPrese
 
     @Override
     public void showError() {
-        //TODO
+        onSnackbarMake(R.string.error_default_message, Snackbar.LENGTH_SHORT);
     }
 
     @Override
