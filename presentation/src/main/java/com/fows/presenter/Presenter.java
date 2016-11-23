@@ -11,7 +11,7 @@ public class Presenter<ViewType extends BaseView> {
 
     public final void takeView(ViewType view) {
         this.view = view;
-        onTakeView(view);
+        onViewTaken(view);
     }
 
     public final void dropView() {
@@ -24,7 +24,7 @@ public class Presenter<ViewType extends BaseView> {
         }
     }
 
-    protected void onTakeView(ViewType view) {
+    protected void onViewTaken(ViewType view) {
         // Optional method to use by implementation class
     }
 }
