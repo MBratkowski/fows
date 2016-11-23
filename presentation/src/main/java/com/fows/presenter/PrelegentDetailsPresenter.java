@@ -13,6 +13,8 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     private final UseCaseFactory factory;
     private final int prelegentId;
 
+    private Prelegent prelegent;
+
     public PrelegentDetailsPresenter(UseCaseFactory factory, int prelegentId) {
         this.factory = factory;
         this.prelegentId = prelegentId;
@@ -34,7 +36,15 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     @Override
     public void onSuccess(Prelegent prelegent) {
         view.hideLoading();
+
+        this.prelegent = prelegent;
+
         view.displayName(prelegent.getName());
         view.displaySurname(prelegent.getSurname());
     }
+
+    public int getPrelegentsPresentationCount() {
+        return prelegent.getPresentations().size();
+    }
+
 }
