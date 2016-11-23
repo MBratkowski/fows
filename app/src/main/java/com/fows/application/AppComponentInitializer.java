@@ -9,7 +9,7 @@ import com.fows.di.module.AppModule;
 /**
  * Created by mateusz.bratkowski on 21/11/16.
  */
-public enum FowsInjector {
+public enum AppComponentInitializer {
     INSTANCE;
 
     private AppComponent appComponent;
