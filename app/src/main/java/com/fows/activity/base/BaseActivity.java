@@ -5,14 +5,11 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.fows.application.FowsApplication;
-import com.fows.application.FowsInjector;
+import com.fows.application.AppComponentInitializer;
 import com.fows.di.comoponent.ActivityComponent;
 import com.fows.di.comoponent.AppComponent;
 import com.fows.di.comoponent.DaggerActivityComponent;
-import com.fows.di.comoponent.DaggerAppComponent;
 import com.fows.di.module.ActivityModule;
-import com.fows.di.module.AppModule;
 import com.fows.presenter.Presenter;
 import com.fows.view.BaseView;
 
@@ -55,7 +52,7 @@ public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> e
     }
 
     protected AppComponent getAppComponent() {
-        return FowsInjector.INSTANCE.getAppComponent();
+        return AppComponentInitializer.INSTANCE.getAppComponent();
     }
 
     private ActivityComponent getActivityComponent() {
