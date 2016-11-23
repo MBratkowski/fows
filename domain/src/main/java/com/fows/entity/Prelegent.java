@@ -1,5 +1,7 @@
 package com.fows.entity;
 
+import java.util.List;
+
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
@@ -20,6 +22,8 @@ public class Prelegent {
         private String urlCompanyImage;
 
         private String information;
+
+        private List<Presentation> presentations;
 
         public Builder(int id, String name, String surname) {
             this.id = id;
@@ -47,6 +51,11 @@ public class Prelegent {
             return this;
         }
 
+        public Builder presentations(List<Presentation> presentations) {
+            this.presentations = presentations;
+            return this;
+        }
+
         public Prelegent build() {
             return new Prelegent(this);
         }
@@ -66,6 +75,8 @@ public class Prelegent {
 
     private String information;
 
+    private List<Presentation> presentations;
+
     public Prelegent(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;
@@ -74,6 +85,7 @@ public class Prelegent {
         this.urlCompanyImage = builder.urlCompanyImage;
         this.urlPersonImage = builder.urlPersonImage;
         this.information = builder.information;
+        this.presentations = builder.presentations;
     }
 
 
@@ -112,5 +124,9 @@ public class Prelegent {
 
     public String getUrlCompanyImage() {
         return urlCompanyImage;
+    }
+
+    public List<Presentation> getPresentations() {
+        return presentations;
     }
 }
