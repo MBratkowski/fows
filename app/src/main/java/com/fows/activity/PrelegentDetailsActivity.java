@@ -3,7 +3,6 @@ package com.fows.activity;
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
 import com.fows.di.comoponent.ActivityComponent;
-import com.fows.di.comoponent.AppComponent;
 import com.fows.di.module.PrelegentDetailsModule;
 import com.fows.presenter.PrelegentDetailsPresenter;
 import com.fows.view.PrelegentDetailsView;
@@ -33,7 +32,7 @@ public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPrese
 
     @Override
     protected void performFieldInjection(ActivityComponent appComponent) {
-        appComponent.plus(new PrelegentDetailsModule()).inject(this);
+        appComponent.addModule(new PrelegentDetailsModule()).inject(this);
     }
 
     @Override
