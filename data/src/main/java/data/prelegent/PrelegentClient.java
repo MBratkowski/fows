@@ -28,14 +28,11 @@ public class PrelegentClient implements PrelegentGateway {
     }
 
     public Observable<Prelegent> getPrelegent(final int prelegentId) {
-        return Observable.from(provider.getPrelegents()).map(new Func1<Prelegent, Prelegent>() {
-            @Override
-            public Prelegent call(Prelegent prelegent) {
-                if (prelegent.getId() == prelegentId) {
-                    return prelegent;
-                }
-                return null;
+        for (Prelegent prelegent : provider.getPrelegents()) {
+            if (prelegent.getId() == prelegentId) {
+                return Observable.just(prelegent);
             }
-        });
+        }
+        return null;
     }
 }
