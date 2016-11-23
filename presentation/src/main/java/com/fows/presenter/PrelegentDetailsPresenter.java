@@ -34,9 +34,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     @Override
     public void onSuccess(Prelegent prelegent) {
         view.hideLoading();
-        //view.displayDescription(prelegent.getInformation());
         view.displayName(prelegent.getName());
         view.displaySurname(prelegent.getSurname());
-        //view.displayPhoto(prelegent.getUrlPersonImage());
     }
 }
