@@ -95,7 +95,7 @@ public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPrese
 
     @Override
     protected void performFieldInjection(ActivityComponent appComponent) {
-        appComponent.plus(new PrelegentDetailsModule()).inject(this);
+        appComponent.addModule(new PrelegentDetailsModule()).inject(this);
     }
 
     @Override

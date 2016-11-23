@@ -5,7 +5,7 @@ package com.fows.view;
  */
 public interface PrelegentListView extends BaseView {
 
-    void showDetails(int prelegentId);
+    void showPrelegentDetails(int prelegentId);
 
     void showLoading();
 

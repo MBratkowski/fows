@@ -21,7 +21,7 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     }
 
     @Override
-    protected void onTakeView(PrelegentListView view) {
+    protected void onViewTaken(PrelegentListView view) {
         this.view.showLoading();
         factory.getPrelegentsListUseCase(this).execute();
     }
@@ -48,6 +48,6 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     }
 
     public void itemClick(int position) {
-        view.showDetails(prelegents.get(position).getId());
+        view.showPrelegentDetails(prelegents.get(position).getId());
     }
 }

@@ -1,9 +1,9 @@
 package com.fows.di.comoponent;
 
+import com.fows.UseCaseFactory;
 import com.fows.application.FowsApplication;
-import com.fows.di.module.ActivityModule;
 import com.fows.di.module.AppModule;
-import com.fows.di.module.PrelegentListModule;
+import com.fows.gateway.PrelegentGateway;
 
 import javax.inject.Singleton;
 
@@ -16,4 +16,8 @@ import dagger.Component;
 @Component(modules = AppModule.class)
 public interface AppComponent {
     void inject(FowsApplication application);
+
+    PrelegentGateway getPrelegentGateway();
+
+    UseCaseFactory getUseCaseFactory();
 }

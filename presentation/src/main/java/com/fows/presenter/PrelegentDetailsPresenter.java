@@ -5,8 +5,6 @@ import com.fows.entity.Prelegent;
 import com.fows.usecase.base.UseCase;
 import com.fows.view.PrelegentDetailsView;
 
-import java.util.List;
-
 /**
  * Created by mateusz.bratkowski on 20/11/16.
  */
@@ -21,8 +19,8 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     }
 
     @Override
-    protected void onTakeView(PrelegentDetailsView view) {
-        super.onTakeView(view);
+    protected void onViewTaken(PrelegentDetailsView view) {
+        super.onViewTaken(view);
         view.showLoading();
         factory.getPrelegentDetailsUseCase(this, prelegentId).execute();
     }

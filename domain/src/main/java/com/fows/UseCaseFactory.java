@@ -1,5 +1,6 @@
 package com.fows;
 
+import com.fows.aux.ObserverTransformer;
 import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.PrelegentDetailsUseCase;
 import com.fows.usecase.PrelegentListUseCase;
@@ -11,20 +12,18 @@ import com.fows.usecase.base.UseCase;
 public class UseCaseFactory {
 
     private final PrelegentGateway entityGateway;
+    private final ObserverTransformer observerTransformer;
 
-    public UseCaseFactory(PrelegentGateway entityGateway) {
+    public UseCaseFactory(PrelegentGateway entityGateway, ObserverTransformer observerTransformer) {
         this.entityGateway = entityGateway;
-    }
-
-    public UseCaseFactory(PrelegentGateway entityGateway, int prelegentId) {
-        this.entityGateway = entityGateway;
+        this.observerTransformer = observerTransformer;
     }
 
     public UseCase getPrelegentsListUseCase(PrelegentListUseCase.Callback callback) {
-        return new PrelegentListUseCase(entityGateway, callback);
+        return new PrelegentListUseCase(observerTransformer, entityGateway, callback);
     }
 
     public UseCase getPrelegentDetailsUseCase(PrelegentDetailsUseCase.Callback callback, int prelegentId) {
-        return new PrelegentDetailsUseCase(entityGateway, callback, prelegentId);
+        return new PrelegentDetailsUseCase(observerTransformer, entityGateway, callback, prelegentId);
     }
 }

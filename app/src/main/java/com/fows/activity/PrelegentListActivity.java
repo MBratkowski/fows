@@ -1,18 +1,14 @@
 package com.fows.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.fows.R;
 import com.fows.activity.base.BaseActivity;
 import com.fows.adapter.PrelegentAdapter;
 import com.fows.di.comoponent.ActivityComponent;
-import com.fows.di.comoponent.AppComponent;
-import com.fows.di.module.ActivityModule;
 import com.fows.di.module.PrelegentListModule;
 import com.fows.navigator.Navigator;
 import com.fows.presenter.PrelegentListPresenter;
@@ -38,7 +34,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     }
 
     @Override
-    public void showDetails(int prelegentId) {
+    public void showPrelegentDetails(int prelegentId) {
         Navigator.startPrelegentDetailsActivty(this, prelegentId);
     }
 
@@ -59,7 +55,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     protected void performFieldInjection(ActivityComponent activityComponent) {
-        activityComponent.plus(new PrelegentListModule()).inject(this);
+        activityComponent.addModule(new PrelegentListModule()).inject(this);
     }
 
     @Override
