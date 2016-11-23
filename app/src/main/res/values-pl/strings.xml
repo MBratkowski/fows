@@ -13,4 +13,7 @@
     <!--Activites Titles-->
     <string name="activity_prelegent_details_title">Speaker</string>
     <string name="test_string">Lorem ipsum dolor sit amet, et vis noluisse mandamus definitiones, quo aeque dicit ne. Pro unum discere corrumpit te, ius eu lorem animal corpora. Quodsi propriae ei vel. Eu has atqui oportere efficiendi, vis sumo sonet appareat eu. No quem elit liber eum. Munere quaeque scripserit nec ut, tempor eirmod mel ne, ea nisl choro rationibus cum. Pri legere graece aperiri et, ei quo nibh mazim. Pro debet labores verterem an, odio nulla usu et. Ut timeam dolorem albucius mel, vim graeco mentitum cotidieque ut. No inani theophrastus concludaturque mei.</string>
+
+    <!--Error messages-->
+    <string name="error_default_message">Wystąpił błąd</string>
 </resources>
