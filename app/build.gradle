@@ -75,6 +75,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:$SUPPORT_VERSION_LIBRARY"
     compile "com.android.support:gridlayout-v7:$SUPPORT_VERSION_LIBRARY"
     compile "com.android.support:recyclerview-v7:$SUPPORT_VERSION_LIBRARY"
+    compile "com.android.support:design:$SUPPORT_VERSION_LIBRARY"
 
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
     annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
