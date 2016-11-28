@@ -8,6 +8,8 @@ import com.fows.view.PrelegentListView;
 
 import java.util.List;
 
+import rx.SingleSubscriber;
+
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
@@ -23,7 +25,17 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     @Override
     protected void onViewTaken(PrelegentListView view) {
         this.view.showLoading();
-        factory.getPrelegentsListUseCase(this).execute();
+        factory.getPrelegentsListUseCase(this).execute().subscribe(new SingleSubscriber<List<Prelegent>>() {
+            @Override
+            public void onSuccess(List<Prelegent> prelegents) {
+                PrelegentListPresenter.this.onSuccess(prelegents);
+            }
+
+            @Override
+            public void onError(Throwable error) {
+                PrelegentListPresenter.this.onError(error);
+            }
+        });
     }
 
     @Override

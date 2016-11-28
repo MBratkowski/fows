@@ -64,6 +64,7 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
     public PrelegentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_prelegent, parent, false);
         PrelegentViewHolder holder = new PrelegentViewHolder(view);
+        view.setOnClickListener(click -> presenter.itemClick(holder.getAdapterPosition()));
         return holder;
     }
 

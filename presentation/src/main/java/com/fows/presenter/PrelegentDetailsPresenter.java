@@ -5,6 +5,12 @@ import com.fows.entity.Prelegent;
 import com.fows.usecase.base.UseCase;
 import com.fows.view.PrelegentDetailsView;
 
+import javax.inject.Inject;
+
+import rx.Observable;
+import rx.Single;
+import rx.SingleSubscriber;
+
 /**
  * Created by mateusz.bratkowski on 20/11/16.
  */
@@ -23,7 +29,17 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> i
     protected void onViewTaken(PrelegentDetailsView view) {
         super.onViewTaken(view);
         view.showLoading();
-        factory.getPrelegentDetailsUseCase(this, prelegentId);
+        factory.getPrelegentDetailsUseCase(this, prelegentId).execute().subscribe(new SingleSubscriber<Prelegent>() {
+            @Override
+            public void onSuccess(Prelegent prelegent) {
+                PrelegentDetailsPresenter.this.onSuccess(prelegent);
+            }
+
+            @Override
+            public void onError(Throwable error) {
+                PrelegentDetailsPresenter.this.onError(error);
+            }
+        });
     }
 
     @Override

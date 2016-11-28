@@ -1,48 +1,38 @@
 package com.fows.usecase;
 
-import com.fows.aux.ObserverTransformer;
+import com.fows.aux.RxTransformer;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
+import com.fows.usecase.base.AbstractRxSingleUseCase;
 import com.fows.usecase.base.UseCase;
 
-import rx.Subscriber;
+import rx.Single;
+import rx.SingleSubscriber;
 
 /**
  * Created by mateusz.bratkowski on 20/11/16.
  */
-public class PrelegentDetailsUseCase implements UseCase {
+public class PrelegentDetailsUseCase extends AbstractRxSingleUseCase<Prelegent> {
 
     private final PrelegentGateway entityGateway;
-    private final UseCase.Callback callback;
-    private final ObserverTransformer observerTransformer;
+    private final UseCase.Callback<Prelegent> callback;
     private final int prelegentId;
 
-    public PrelegentDetailsUseCase(ObserverTransformer observerTransformer, PrelegentGateway entityGateway, Callback callback,
+    public PrelegentDetailsUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway, Callback<Prelegent> callback,
             int prelegentId) {
+        super(rxTransformer);
         this.entityGateway = entityGateway;
         this.callback = callback;
         this.prelegentId = prelegentId;
-        this.observerTransformer = observerTransformer;
     }
 
     @Override
-    public void execute() {
-        entityGateway.getPrelegent(prelegentId).compose(observerTransformer.<Prelegent>applySchedulers())
-                .subscribe(new Subscriber<Prelegent>() {
-                    @Override
-                    public void onCompleted() {
+    public Single<Prelegent> execute() {
+        return super.execute();
+    }
 
-                    }
-
-                    @Override
-                    public void onError(Throwable error) {
-                        callback.onError(error);
-                    }
-
-                    @Override
-                    public void onNext(Prelegent prelegent) {
-                        callback.onSuccess(prelegent);
-                    }
-                });
+    @Override
+    protected Single<Prelegent> createSingle() {
+        return entityGateway.getPrelegentDetails(prelegentId);
     }
 }

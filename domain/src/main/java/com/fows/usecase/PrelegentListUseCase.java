@@ -1,47 +1,37 @@
 package com.fows.usecase;
 
-import com.fows.aux.ObserverTransformer;
+import com.fows.aux.RxTransformer;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
+import com.fows.usecase.base.AbstractRxSingleUseCase;
 import com.fows.usecase.base.UseCase;
 
 import java.util.List;
 
-import rx.Subscriber;
+import rx.Single;
+import rx.SingleSubscriber;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class PrelegentListUseCase implements UseCase {
+public class PrelegentListUseCase extends AbstractRxSingleUseCase<List<Prelegent>> {
 
     private final PrelegentGateway entityGateway;
-    private final UseCase.Callback callback;
-    private final ObserverTransformer observerTransformer;
+    private final UseCase.Callback<List<Prelegent>> callback;
 
-    public PrelegentListUseCase(ObserverTransformer observerTransformer, PrelegentGateway entityGateway, Callback callback) {
+    public PrelegentListUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway, Callback<List<Prelegent>> callback) {
+        super(rxTransformer);
         this.entityGateway = entityGateway;
         this.callback = callback;
-        this.observerTransformer = observerTransformer;
     }
 
     @Override
-    public void execute() {
-        entityGateway.getPrelegents().compose(observerTransformer.<List<Prelegent>>applySchedulers())
-                .subscribe(new Subscriber<List<Prelegent>>() {
-                    @Override
-                    public void onCompleted() {
+    public Single<List<Prelegent>> execute() {
+        return super.execute();
+    }
 
-                    }
-
-                    @Override
-                    public void onError(Throwable error) {
-                        callback.onError(error);
-                    }
-
-                    @Override
-                    public void onNext(List<Prelegent> prelegents) {
-                        callback.onSuccess(prelegents);
-                    }
-                });
+    @Override
+    public Single<List<Prelegent>> createSingle() {
+        return entityGateway.getPrelegents();
     }
 }
