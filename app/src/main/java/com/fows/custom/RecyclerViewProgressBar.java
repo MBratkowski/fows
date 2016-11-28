@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.fows.R;
 
@@ -15,9 +16,12 @@ import butterknife.BindView;
  * Created by ByJacob on 2016-11-22-16:46.
  */
 
-public class RecyclerViewProgressBar extends RecyclerView {
-    @BindView(R.id.progressBar2)
-    ProgressBar progressBar2;
+public class RecyclerViewProgressBar extends RelativeLayout {
+
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
     public RecyclerViewProgressBar(Context context) {
         this(context, null);
@@ -30,10 +34,10 @@ public class RecyclerViewProgressBar extends RecyclerView {
     }
 
     public void showLoading() {
-        progressBar2.setVisibility(VISIBLE);
+        progressBar.setVisibility(VISIBLE);
     }
 
     public void hideLoading() {
-        progressBar2.setVisibility(INVISIBLE);
+        progressBar.setVisibility(INVISIBLE);
     }
 }
