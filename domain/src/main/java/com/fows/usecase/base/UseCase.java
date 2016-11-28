@@ -3,7 +3,7 @@ package com.fows.usecase.base;
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public interface UseCase {
+public interface UseCase<T> {
 
     interface Callback<DataType> {
 
@@ -12,5 +12,5 @@ public interface UseCase {
         void onError(Throwable throwable);
     }
 
-    void execute();
+    T execute();
 }
