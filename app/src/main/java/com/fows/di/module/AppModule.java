@@ -2,16 +2,20 @@ package com.fows.di.module;
 
 import android.app.Application;
 
-import com.fows.aux.ObserverTransformer;
+import com.fows.aux.RxTransformer;
 import com.fows.UseCaseFactory;
 import com.fows.gateway.PrelegentGateway;
-import com.fows.rx.ObserverTransfomerImpl;
+import com.fows.rx.AndroidRxTransformer;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import data.prelegent.PrelegentClient;
+import rx.Scheduler;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -33,20 +37,28 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public PrelegentGateway providePrelegentClient(PrelegentClient prelegentClient) {
+    @Named("schedulerIO")
+    public Scheduler provideIoScheduler() {
+        return Schedulers.io();
+    }
+
+    @Provides
+    @Singleton
+    @Named("androidMainThreed")
+    public Scheduler provideAndroidMainThred() {
+        return AndroidSchedulers.mainThread();
+    }
+
+    @Provides
+    @Singleton
+    public PrelegentGateway providePrelegentGateway(PrelegentClient prelegentClient) {
         return prelegentClient;
     }
 
     @Provides
     @Singleton
-    public ObserverTransformer provideObserverTransformer() {
-        return new ObserverTransfomerImpl();
-    }
-
-    @Provides
-    @Singleton
-    public UseCaseFactory provideUseCaseFactory(PrelegentGateway prelegentGateway, ObserverTransformer observerTransformer) {
-        return new UseCaseFactory(prelegentGateway, observerTransformer);
+    public RxTransformer provideObserverTransformer(AndroidRxTransformer rxTransformer) {
+        return rxTransformer;
     }
 }
 
