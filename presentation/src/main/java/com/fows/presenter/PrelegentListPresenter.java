@@ -25,7 +25,7 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     @Override
     protected void onViewTaken(PrelegentListView view) {
         this.view.showLoading();
-        factory.getPrelegentsListUseCase(this).execute().subscribe(new SingleSubscriber<List<Prelegent>>() {
+        factory.getPrelegentsListUseCase().execute().subscribe(new SingleSubscriber<List<Prelegent>>() {
             @Override
             public void onSuccess(List<Prelegent> prelegents) {
                 PrelegentListPresenter.this.onSuccess(prelegents);

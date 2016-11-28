@@ -9,7 +9,6 @@ import com.fows.usecase.base.UseCase;
 import java.util.List;
 
 import rx.Single;
-import rx.SingleSubscriber;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -17,12 +16,10 @@ import rx.SingleSubscriber;
 public class PrelegentListUseCase extends AbstractRxSingleUseCase<List<Prelegent>> {
 
     private final PrelegentGateway entityGateway;
-    private final UseCase.Callback<List<Prelegent>> callback;
 
-    public PrelegentListUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway, Callback<List<Prelegent>> callback) {
+    public PrelegentListUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway) {
         super(rxTransformer);
         this.entityGateway = entityGateway;
-        this.callback = callback;
     }
 
     @Override

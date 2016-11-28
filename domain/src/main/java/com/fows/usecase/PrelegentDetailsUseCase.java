@@ -4,10 +4,8 @@ import com.fows.aux.RxTransformer;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.base.AbstractRxSingleUseCase;
-import com.fows.usecase.base.UseCase;
 
 import rx.Single;
-import rx.SingleSubscriber;
 
 /**
  * Created by mateusz.bratkowski on 20/11/16.
@@ -15,14 +13,12 @@ import rx.SingleSubscriber;
 public class PrelegentDetailsUseCase extends AbstractRxSingleUseCase<Prelegent> {
 
     private final PrelegentGateway entityGateway;
-    private final UseCase.Callback<Prelegent> callback;
     private final int prelegentId;
 
-    public PrelegentDetailsUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway, Callback<Prelegent> callback,
+    public PrelegentDetailsUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway,
             int prelegentId) {
         super(rxTransformer);
         this.entityGateway = entityGateway;
-        this.callback = callback;
         this.prelegentId = prelegentId;
     }
 

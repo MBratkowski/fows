@@ -6,7 +6,6 @@ import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.PrelegentDetailsUseCase;
 import com.fows.usecase.PrelegentListUseCase;
 import com.fows.usecase.base.AbstractRxSingleUseCase;
-import com.fows.usecase.base.UseCase;
 
 import java.util.List;
 
@@ -26,12 +25,11 @@ public class UseCaseFactory {
         this.rxTransformer = rxTransformer;
     }
 
-    public AbstractRxSingleUseCase<List<Prelegent>> getPrelegentsListUseCase(PrelegentListUseCase.Callback<List<Prelegent>> callback) {
-        return new PrelegentListUseCase(rxTransformer, entityGateway, callback);
+    public AbstractRxSingleUseCase<List<Prelegent>> getPrelegentsListUseCase() {
+        return new PrelegentListUseCase(rxTransformer, entityGateway);
     }
 
-    public AbstractRxSingleUseCase<Prelegent> getPrelegentDetailsUseCase(PrelegentDetailsUseCase.Callback<Prelegent> callback,
-            int prelegentId) {
-        return new PrelegentDetailsUseCase(rxTransformer, entityGateway, callback, prelegentId);
+    public AbstractRxSingleUseCase<Prelegent> getPrelegentDetailsUseCase(int prelegentId) {
+        return new PrelegentDetailsUseCase(rxTransformer, entityGateway, prelegentId);
     }
 }
