@@ -5,8 +5,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ViewAnimator;
 
 import com.fows.R;
 
@@ -16,7 +18,10 @@ import butterknife.BindView;
  * Created by ByJacob on 2016-11-22-16:46.
  */
 
-public class RecyclerViewProgressBar extends RelativeLayout {
+public class RecyclerViewProgressBar extends ViewAnimator {
+
+    private final int POSITION_RECYCLER_VIEW=0;
+    private final int  POSITION_PROGRESS_BAR = 1;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -31,13 +36,14 @@ public class RecyclerViewProgressBar extends RelativeLayout {
         super(context, attrs);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.item_progress_bar, this, true);
+        //ToDo Make in and out animation
     }
 
     public void showLoading() {
-        progressBar.setVisibility(VISIBLE);
+        super.setDisplayedChild(POSITION_PROGRESS_BAR);
     }
 
     public void hideLoading() {
-        progressBar.setVisibility(INVISIBLE);
+        super.setDisplayedChild(POSITION_RECYCLER_VIEW);
     }
 }
