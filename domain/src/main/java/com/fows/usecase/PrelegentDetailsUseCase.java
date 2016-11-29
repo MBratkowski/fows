@@ -1,6 +1,6 @@
 package com.fows.usecase;
 
-import com.fows.aux.RxTransformer;
+import com.fows.aux.AndroidRxTransformer;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.base.AbstractRxSingleUseCase;
@@ -15,16 +15,11 @@ public class PrelegentDetailsUseCase extends AbstractRxSingleUseCase<Prelegent> 
     private final PrelegentGateway entityGateway;
     private final int prelegentId;
 
-    public PrelegentDetailsUseCase(RxTransformer rxTransformer, PrelegentGateway entityGateway,
+    public PrelegentDetailsUseCase(AndroidRxTransformer rxTransformer, PrelegentGateway entityGateway,
             int prelegentId) {
         super(rxTransformer);
         this.entityGateway = entityGateway;
         this.prelegentId = prelegentId;
-    }
-
-    @Override
-    public Single<Prelegent> execute() {
-        return super.execute();
     }
 
     @Override

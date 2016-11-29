@@ -1,7 +1,6 @@
 package com.fows.usecase.base;
 
-import com.fows.aux.RxTransformer;
-import com.fows.gateway.PrelegentGateway;
+import com.fows.aux.AndroidRxTransformer;
 
 import rx.Observable;
 
@@ -10,14 +9,14 @@ import rx.Observable;
  */
 public abstract class AbstractRxObservableUseCase<T> implements UseCase<Observable<T>> {
 
-    private final RxTransformer rxTransformer;
+    private final AndroidRxTransformer rxTransformer;
 
-    public AbstractRxObservableUseCase(RxTransformer rxTransformer) {
+    public AbstractRxObservableUseCase(AndroidRxTransformer rxTransformer) {
         this.rxTransformer = rxTransformer;
     }
 
     @Override
-    public Observable<T> execute() {
+    public final Observable<T> execute() {
         return createObservable().compose(rxTransformer.<T>getObservableSchedulers());
     }
 

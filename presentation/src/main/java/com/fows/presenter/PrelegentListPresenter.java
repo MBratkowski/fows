@@ -13,7 +13,7 @@ import rx.SingleSubscriber;
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class PrelegentListPresenter extends Presenter<PrelegentListView> implements UseCase.Callback<List<Prelegent>> {
+public class PrelegentListPresenter extends Presenter<PrelegentListView> {
 
     private final UseCaseFactory factory;
     private List<Prelegent> prelegents;
@@ -25,29 +25,14 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> impleme
     @Override
     protected void onViewTaken(PrelegentListView view) {
         this.view.showLoading();
-        factory.getPrelegentsListUseCase().execute().subscribe(new SingleSubscriber<List<Prelegent>>() {
-            @Override
-            public void onSuccess(List<Prelegent> prelegents) {
-                PrelegentListPresenter.this.onSuccess(prelegents);
-            }
-
-            @Override
-            public void onError(Throwable error) {
-                PrelegentListPresenter.this.onError(error);
-            }
-        });
+        factory.getPrelegentsListUseCase()
+                .execute()
+                .subscribe(this::onSuccess, this::onError);
     }
 
-    @Override
     public void onSuccess(List<Prelegent> prelegents) {
         this.prelegents = prelegents;
         view.hideLoading();
-    }
-
-    @Override
-    public void onError(Throwable throwable) {
-        super.onError(throwable);
-        view.showError();
     }
 
     public int getPrelegentsCount() {

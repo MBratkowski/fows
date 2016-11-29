@@ -2,10 +2,8 @@ package com.fows.di.module;
 
 import android.app.Application;
 
-import com.fows.aux.RxTransformer;
-import com.fows.UseCaseFactory;
 import com.fows.gateway.PrelegentGateway;
-import com.fows.rx.AndroidRxTransformer;
+import com.fows.aux.AndroidRxTransformer;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -44,8 +42,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    @Named("androidMainThreed")
-    public Scheduler provideAndroidMainThred() {
+    @Named("androidMainThread")
+    public Scheduler provideAndroidMainThread() {
         return AndroidSchedulers.mainThread();
     }
 
@@ -53,12 +51,6 @@ public class AppModule {
     @Singleton
     public PrelegentGateway providePrelegentGateway(PrelegentClient prelegentClient) {
         return prelegentClient;
-    }
-
-    @Provides
-    @Singleton
-    public RxTransformer provideObserverTransformer(AndroidRxTransformer rxTransformer) {
-        return rxTransformer;
     }
 }
 
