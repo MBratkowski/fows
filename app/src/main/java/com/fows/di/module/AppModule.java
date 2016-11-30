@@ -2,10 +2,17 @@ package com.fows.di.module;
 
 import android.app.Application;
 
+import com.fows.gateway.PrelegentGateway;
+
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import data.prelegent.PrelegentClient;
+import rx.Scheduler;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -13,16 +20,36 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    Application mApplication;
+    private final Application application;
 
     public AppModule(Application application) {
-        mApplication = application;
+        this.application = application;
     }
 
     @Provides
     @Singleton
     Application providesApplication() {
-        return mApplication;
+        return application;
+    }
+
+    @Provides
+    @Singleton
+    @Named("SubscribeOnScheduler")
+    public Scheduler provideIoScheduler() {
+        return Schedulers.io();
+    }
+
+    @Provides
+    @Singleton
+    @Named("ObserveOnScheduler")
+    public Scheduler provideAndroidMainThread() {
+        return AndroidSchedulers.mainThread();
+    }
+
+    @Provides
+    @Singleton
+    public PrelegentGateway providePrelegentGateway(PrelegentClient prelegentClient) {
+        return prelegentClient;
     }
 }
 

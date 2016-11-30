@@ -1,8 +1,17 @@
 package com.fows;
 
+import com.fows.aux.FowsRxTransformerProvider;
+import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
+import com.fows.usecase.PrelegentDetailsUseCase;
 import com.fows.usecase.PrelegentListUseCase;
 import com.fows.usecase.base.UseCase;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import rx.Single;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -10,12 +19,19 @@ import com.fows.usecase.base.UseCase;
 public class UseCaseFactory {
 
     private final PrelegentGateway entityGateway;
+    private final FowsRxTransformerProvider rxTransformer;
 
-    public UseCaseFactory(PrelegentGateway entityGateway) {
+    @Inject
+    public UseCaseFactory(PrelegentGateway entityGateway, FowsRxTransformerProvider rxTransformer) {
         this.entityGateway = entityGateway;
+        this.rxTransformer = rxTransformer;
     }
 
-    public UseCase getPrelegentsListUseCase(PrelegentListUseCase.Callback callback) {
-        return new PrelegentListUseCase(entityGateway, callback);
+    public UseCase<Single<List<Prelegent>>> getPrelegentsListUseCase() {
+        return new PrelegentListUseCase(rxTransformer, entityGateway);
+    }
+
+    public UseCase<Single<Prelegent>> getPrelegentDetailsUseCase(int prelegentId) {
+        return new PrelegentDetailsUseCase(rxTransformer, entityGateway, prelegentId);
     }
 }
