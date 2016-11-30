@@ -17,8 +17,8 @@ public final class AndroidRxTransformer {
     private final Scheduler observerOnScheduler;
 
     @Inject
-    public AndroidRxTransformer(@Named("androidMainThread") Scheduler subscribeOnScheduler,
-            @Named("schedulerIO") Scheduler observerOnScheduler) {
+    public AndroidRxTransformer(@Named("schedulerIO") Scheduler subscribeOnScheduler,
+            @Named("androidMainThread") Scheduler observerOnScheduler) {
         this.subscribeOnScheduler = subscribeOnScheduler;
         this.observerOnScheduler = observerOnScheduler;
     }
