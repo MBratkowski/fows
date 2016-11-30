@@ -10,11 +10,8 @@ import com.fows.activity.PrelegentDetailsActivity;
  */
 public final class Navigator {
 
-    /**
-     * Private constructor is protected before the creation of the object
-     */
     private Navigator() {
-        new UnsupportedOperationException("No instances");
+        throw new UnsupportedOperationException("No instances");
     }
 
     public static void startPrelegentDetailsActivty(Context context, int prelegentId) {

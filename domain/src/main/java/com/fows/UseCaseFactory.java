@@ -1,10 +1,17 @@
 package com.fows;
 
-import com.fows.aux.ObserverTransformer;
+import com.fows.aux.AndroidRxTransformer;
+import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.PrelegentDetailsUseCase;
 import com.fows.usecase.PrelegentListUseCase;
 import com.fows.usecase.base.UseCase;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import rx.Single;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -12,18 +19,19 @@ import com.fows.usecase.base.UseCase;
 public class UseCaseFactory {
 
     private final PrelegentGateway entityGateway;
-    private final ObserverTransformer observerTransformer;
+    private final AndroidRxTransformer rxTransformer;
 
-    public UseCaseFactory(PrelegentGateway entityGateway, ObserverTransformer observerTransformer) {
+    @Inject
+    public UseCaseFactory(PrelegentGateway entityGateway, AndroidRxTransformer rxTransformer) {
         this.entityGateway = entityGateway;
-        this.observerTransformer = observerTransformer;
+        this.rxTransformer = rxTransformer;
     }
 
-    public UseCase getPrelegentsListUseCase(PrelegentListUseCase.Callback callback) {
-        return new PrelegentListUseCase(observerTransformer, entityGateway, callback);
+    public UseCase<Single<List<Prelegent>>> getPrelegentsListUseCase() {
+        return new PrelegentListUseCase(rxTransformer, entityGateway);
     }
 
-    public UseCase getPrelegentDetailsUseCase(PrelegentDetailsUseCase.Callback callback, int prelegentId) {
-        return new PrelegentDetailsUseCase(observerTransformer, entityGateway, callback, prelegentId);
+    public UseCase<Single<Prelegent>> getPrelegentDetailsUseCase(int prelegentId) {
+        return new PrelegentDetailsUseCase(rxTransformer, entityGateway, prelegentId);
     }
 }

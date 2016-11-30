@@ -4,11 +4,12 @@ import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
 
 import rx.Observable;
-import rx.functions.Func1;
+import rx.Single;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -23,16 +24,18 @@ public class PrelegentClient implements PrelegentGateway {
     }
 
     @Override
-    public Observable<List<Prelegent>> getPrelegents() {
-        return Observable.from(provider.getPrelegents()).toList();
+    public Single<List<Prelegent>> getPrelegents() {
+        return Observable.from(provider.getPrelegents()).toList().toSingle();
     }
 
-    public Observable<Prelegent> getPrelegent(final int prelegentId) {
-        for (Prelegent prelegent : provider.getPrelegents()) {
-            if (prelegent.getId() == prelegentId) {
-                return Observable.just(prelegent);
+    @Override
+    public Single<Prelegent> getPrelegentDetails(final int prelegentId) {
+        return Observable.fromCallable(new Callable<Prelegent>() {
+            @Override
+            public Prelegent call() throws Exception {
+                return provider.getPrelegents().get(prelegentId);
             }
-        }
-        return null;
+        }).toSingle();
+
     }
 }
