@@ -2,13 +2,10 @@ package com.fows.presenter;
 
 import com.fows.UseCaseFactory;
 import com.fows.entity.Prelegent;
-import com.fows.usecase.base.UseCase;
 import com.fows.view.PrelegentListRowView;
 import com.fows.view.PrelegentListView;
 
 import java.util.List;
-
-import rx.SingleSubscriber;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -27,12 +24,7 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> {
         this.view.showLoading();
         factory.getPrelegentsListUseCase()
                 .execute()
-                .subscribe(this::onSuccess, this::onError);
-    }
-
-    public void onSuccess(List<Prelegent> prelegents) {
-        this.prelegents = prelegents;
-        view.hideLoading();
+                .subscribe(this::onPrelegentListFetchSuccess, this::onPrelegentListFetchError);
     }
 
     public int getPrelegentsCount() {
@@ -46,5 +38,14 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> {
 
     public void itemClick(int position) {
         view.showPrelegentDetails(prelegents.get(position).getId());
+    }
+
+    private void onPrelegentListFetchSuccess(List<Prelegent> prelegents) {
+        view.hideLoading();
+        this.prelegents = prelegents;
+    }
+
+    private void onPrelegentListFetchError(Throwable throwable) {
+        onError(throwable);
     }
 }
