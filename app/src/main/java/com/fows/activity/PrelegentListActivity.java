@@ -31,7 +31,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     public void showError() {
-        onSnackbarMake(R.string.error_default_message, Snackbar.LENGTH_SHORT);
+        //TODO
     }
 
     @Override
