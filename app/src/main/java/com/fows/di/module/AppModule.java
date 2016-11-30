@@ -3,7 +3,6 @@ package com.fows.di.module;
 import android.app.Application;
 
 import com.fows.gateway.PrelegentGateway;
-import com.fows.aux.AndroidRxTransformer;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -35,14 +34,14 @@ public class AppModule {
 
     @Provides
     @Singleton
-    @Named("schedulerIO")
+    @Named("SubscribeOnScheduler")
     public Scheduler provideIoScheduler() {
         return Schedulers.io();
     }
 
     @Provides
     @Singleton
-    @Named("androidMainThread")
+    @Named("ObserveOnScheduler")
     public Scheduler provideAndroidMainThread() {
         return AndroidSchedulers.mainThread();
     }
