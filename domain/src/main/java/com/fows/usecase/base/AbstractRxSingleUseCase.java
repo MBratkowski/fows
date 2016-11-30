@@ -1,6 +1,6 @@
 package com.fows.usecase.base;
 
-import com.fows.aux.AndroidRxTransformer;
+import com.fows.aux.FowsRxTransformerProvider;
 
 import rx.Single;
 
@@ -9,9 +9,9 @@ import rx.Single;
  */
 public abstract class AbstractRxSingleUseCase<T> implements UseCase<Single<T>> {
 
-    private final AndroidRxTransformer rxTransformer;
+    private final FowsRxTransformerProvider rxTransformer;
 
-    public AbstractRxSingleUseCase(AndroidRxTransformer rxTransformer) {
+    public AbstractRxSingleUseCase(FowsRxTransformerProvider rxTransformer) {
         this.rxTransformer = rxTransformer;
     }
 

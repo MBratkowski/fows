@@ -11,14 +11,14 @@ import rx.Single;
 /**
  * Created by mateusz.bratkowski on 23/11/16.
  */
-public final class AndroidRxTransformer {
+public final class FowsRxTransformerProvider {
 
     private final Scheduler subscribeOnScheduler;
     private final Scheduler observerOnScheduler;
 
     @Inject
-    public AndroidRxTransformer(@Named("schedulerIO") Scheduler subscribeOnScheduler,
-            @Named("androidMainThread") Scheduler observerOnScheduler) {
+    public FowsRxTransformerProvider(@Named("SubscribeOnScheduler") Scheduler subscribeOnScheduler,
+            @Named("ObserveOnScheduler") Scheduler observerOnScheduler) {
         this.subscribeOnScheduler = subscribeOnScheduler;
         this.observerOnScheduler = observerOnScheduler;
     }

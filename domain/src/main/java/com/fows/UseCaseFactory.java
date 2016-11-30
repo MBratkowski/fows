@@ -1,6 +1,6 @@
 package com.fows;
 
-import com.fows.aux.AndroidRxTransformer;
+import com.fows.aux.FowsRxTransformerProvider;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.PrelegentDetailsUseCase;
@@ -19,10 +19,10 @@ import rx.Single;
 public class UseCaseFactory {
 
     private final PrelegentGateway entityGateway;
-    private final AndroidRxTransformer rxTransformer;
+    private final FowsRxTransformerProvider rxTransformer;
 
     @Inject
-    public UseCaseFactory(PrelegentGateway entityGateway, AndroidRxTransformer rxTransformer) {
+    public UseCaseFactory(PrelegentGateway entityGateway, FowsRxTransformerProvider rxTransformer) {
         this.entityGateway = entityGateway;
         this.rxTransformer = rxTransformer;
     }
