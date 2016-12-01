@@ -10,6 +10,7 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply from: '../quality/quality.gradle'
 
 
 repositories {
