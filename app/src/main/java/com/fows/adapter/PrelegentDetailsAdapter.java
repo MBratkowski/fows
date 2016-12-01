@@ -5,12 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.fows.R;
 import com.fows.entity.Prelegent;
 import com.fows.entity.Presentation;
 import com.fows.presenter.PrelegentDetailsPresenter;
+import com.fows.view.PrelegentDetailsViewInformationRow;
+import com.fows.view.PrelegentDetailsViewPresentationRow;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -18,63 +22,108 @@ import butterknife.ButterKnife;
  */
 public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private abstract static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class InformationItem extends RecyclerView.ViewHolder implements PrelegentDetailsViewInformationRow {
 
-        public ViewHolder(View itemView) {
+        @BindView(R.id.name_text_view)
+        TextView nameTextView;
+
+        public InformationItem(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-    }
 
-    private static class DetailsViewHolder extends RecyclerView.ViewHolder  {
+        @Override
+        public void displayName(String name) {
+            nameTextView.setText(name);
+        }
 
-        public DetailsViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
+        @Override
+        public void displaySurname(String surname) {
+
+        }
+
+        @Override
+        public void displayDescription(String descritpion) {
+
+        }
+
+        @Override
+        public void displayCompany(String company) {
+
+        }
+
+        @Override
+        public void displayPhoto(String urlPhoto) {
+
         }
     }
 
-    private static class PresentationItemViewHolder extends RecyclerView.ViewHolder  {
+    public static class PresentationItem extends RecyclerView.ViewHolder implements PrelegentDetailsViewPresentationRow {
 
-        public PresentationItemViewHolder(View itemView) {
+        @BindView(R.id.theme_text_view)
+        TextView themeTextView;
+
+        public PresentationItem(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @Override
+        public void displayStartTimePresentation(String presentationDateTime) {
+
+        }
+
+        @Override
+        public void displayThemePresentation(String presentationOverview) {
+            themeTextView.setText(presentationOverview);
+        }
+
+        @Override
+        public void displayAuthorPresntation(String presentationPlace) {
+
         }
     }
 
     private static final int HEADER_COUNT = 1;
+    private static final int HEADER_POSTIION = 0;
 
-    private static final int DETAILS_TYPE = 0;
+    private static final int INFORMATION_ITEM_TYPE = 0;
     private static final int PRESENTATION_ITEM_TYPE = 1;
 
-    private LayoutInflater layoutInflater;
-    private PrelegentDetailsPresenter presenter;
+    private final LayoutInflater layoutInflater;
+    private final PrelegentDetailsPresenter presenter;
 
-    public PrelegentDetailsAdapter(PrelegentDetailsPresenter prelegentDetailsPresenter, Context contex) {
+    public PrelegentDetailsAdapter(PrelegentDetailsPresenter presenter, Context context) {
+        this.presenter = presenter;
+        layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
-            case DETAILS_TYPE:
-                return new DetailsViewHolder(layoutInflater.inflate(R.layout.activity_prelegent_details, parent, false));
+            case INFORMATION_ITEM_TYPE:
+                return new InformationItem(layoutInflater.inflate(R.layout.item_prelegent_details_information, parent, false));
             case PRESENTATION_ITEM_TYPE:
-                return new PresentationItemViewHolder(layoutInflater.inflate(R.layout.activity_prelegent_list, parent, false));
+                return new PresentationItem(layoutInflater.inflate(R.layout.item_prelegent_details_presentation, parent, false));
             default:
-                new IllegalArgumentException();
+                new IllegalArgumentException("Invalid view type");
         }
         return null;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        if (position == HEADER_POSTIION) {
+            bindInformation((InformationItem) holder);
+        } else {
+            bindPresentataion((PresentationItem) holder, position);
+        }
     }
 
     @Override
     public int getItemViewType(int position) {
         if (position == 0) {
-            return DETAILS_TYPE;
+            return INFORMATION_ITEM_TYPE;
         } else {
             return PRESENTATION_ITEM_TYPE;
         }
@@ -85,11 +134,11 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
         return presenter.getPrelegentsPresentationCount() + HEADER_COUNT;
     }
 
-    private void bindDetailsView(DetailsViewHolder viewHolder, Prelegent prelegent) {
-
+    private void bindInformation(InformationItem viewHolder) {
+        presenter.configureInformationRow(viewHolder);
     }
 
-    private void bindPresentataionItemPostion(PresentationItemViewHolder viewHolder, Presentation presentation) {
-
+    private void bindPresentataion(PresentationItem viewHolder, int position) {
+        presenter.configurePresentationRow(viewHolder, position - HEADER_COUNT);
     }
 }

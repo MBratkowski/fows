@@ -1,72 +1,82 @@
 package com.fows.entity;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public class Presentation {
 
-    private ArrayList<Prelegent> prelegents;
+    public static class Builder {
 
-    private String theme;
+        private final String author;
+        private final String theme;
+        private final String startTime;
+        private String description;
+        private boolean isLiked;
+        private float rating;
 
-    private String information;
+        public Builder(String theme, String author, String startTime) {
+            this.theme = theme;
+            this.author = author;
+            this.startTime = startTime;
+        }
 
-    private Date startTime;
-
-    private Date finishTime;
-
-    private String lang;
-
-    private boolean isLiked;
-
-    private float rating;
-
-    //Zobaczymy w trakcie jaki najlepszy konstruktor będzie
-    public Presentation(ArrayList<Prelegent> prelegents, String theme, String information, Date startTime, Date finishTime, String lang) {
-        this.prelegents = prelegents;
-        this.theme = theme;
-        this.information = information;
-        this.startTime = startTime;
-        this.finishTime = finishTime;
-        this.lang = lang;
+        public Presentation build() {
+            return new Presentation(this);
+        }
     }
 
-    public ArrayList<Prelegent> getPrelegents() {
-        return prelegents;
+    private String author;
+    private String theme;
+    private String description;
+    private String startTime;
+    private boolean isLiked;
+    private float rating;
+
+    public Presentation(Builder builder) {
+        author = builder.author;
+        theme = builder.theme;
+        description = builder.description;
+        startTime = builder.startTime;
+        rating = builder.rating;
+    }
+
+    public Presentation(String theme, String description, String startTime, boolean isLiked, float rating) {
+        this.theme = theme;
+        this.description = description;
+        this.startTime = startTime;
+        this.isLiked = isLiked;
+        this.rating = rating;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public String getTheme() {
         return theme;
     }
 
-    public String getInformation() {
-        return information;
+    public String getDescription() {
+        return description;
     }
 
-    public int getHourStart() {
-        return startTime.getHours();
+    public String getStartTime() {
+        return startTime;
     }
 
-    public int getMinuteStart() {
-        return startTime.getMinutes();
+    public boolean isLiked() {
+        return isLiked;
     }
 
-    public int getHourTime() {
-        return finishTime.getHours();
+    public float getRating() {
+        return rating;
     }
 
-    public int getMinuteTime() {
-        return finishTime.getMinutes();
+    public void setLiked(boolean liked) {
+        isLiked = liked;
     }
 
-    public int getDay() {
-        return startTime.getDay();
-    }
-
-    public String getLang() {
-        return lang;
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

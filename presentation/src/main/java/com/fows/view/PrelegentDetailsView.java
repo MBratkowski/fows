@@ -5,14 +5,6 @@ package com.fows.view;
  */
 public interface PrelegentDetailsView extends BaseView {
 
-    void displayName(String name);
-
-    void displaySurname(String surname);
-
-    void displayDescription(String descritpion);
-
-    void displayPhoto(String urlPhoto);
-
     void showLoading();
 
     void hideLoading();

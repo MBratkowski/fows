@@ -2,10 +2,9 @@ package com.fows.presenter;
 
 import com.fows.UseCaseFactory;
 import com.fows.entity.Prelegent;
-import com.fows.usecase.base.UseCase;
 import com.fows.view.PrelegentDetailsView;
-
-import rx.SingleSubscriber;
+import com.fows.view.PrelegentDetailsViewInformationRow;
+import com.fows.view.PrelegentDetailsViewPresentationRow;
 
 /**
  * Created by mateusz.bratkowski on 20/11/16.
@@ -31,17 +30,27 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
                 .subscribe(this::onPrelegentDetailsFetchSuccess, this::onPrelegentDetailsFetchError);
     }
 
-    private void onPrelegentDetailsFetchSuccess(Prelegent prelegent) {
-        view.hideLoading();
+    public void configureInformationRow(PrelegentDetailsViewInformationRow viewHolder) {
+        viewHolder.displayPhoto(prelegent.getUrlPersonImage());
+        viewHolder.displayName(prelegent.getName());
+        viewHolder.displayDescription(prelegent.getInformation());
+        viewHolder.displaySurname(prelegent.getSurname());
+        viewHolder.displayCompany(prelegent.getCompany());
+    }
 
-        this.prelegent = prelegent;
-
-        view.displayName(prelegent.getName());
-        view.displaySurname(prelegent.getSurname());
+    public void configurePresentationRow(PrelegentDetailsViewPresentationRow viewHolder, int position) {
+        viewHolder.displayStartTimePresentation(prelegent.getPresentations().get(position).getStartTime());
+        viewHolder.displayThemePresentation(prelegent.getPresentations().get(position).getTheme());
+        viewHolder.displayAuthorPresntation(prelegent.getPresentations().get(position).getAuthor());
     }
 
     public int getPrelegentsPresentationCount() {
         return prelegent.getPresentations().size();
+    }
+
+    private void onPrelegentDetailsFetchSuccess(Prelegent prelegent) {
+        view.hideLoading();
+        this.prelegent = prelegent;
     }
 
     private void onPrelegentDetailsFetchError(Throwable throwable) {
