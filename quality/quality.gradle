@@ -39,8 +39,7 @@ task checkstyle(type: Checkstyle, group: 'Verification', description: 'Runs code
 
 task findbugs(type: FindBugs,
         group: 'Verification',
-        description: 'Inspect release java bytecode for bugs',
-        dependsOn: ['compilDebugSources']) {
+        description: 'Inspect release java bytecode for bugs') {
 
     ignoreFailures = false
     effort = "max"
