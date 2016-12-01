@@ -1,6 +1,6 @@
 package com.fows.usecase.base;
 
-import com.fows.aux.AndroidRxTransformer;
+import com.fows.aux.FowsRxTransformerProvider;
 
 import rx.Completable;
 
@@ -9,9 +9,9 @@ import rx.Completable;
  */
 public abstract class AbstractRxCompetableUseCase implements UseCase<Completable> {
 
-    private final AndroidRxTransformer rxTransformer;
+    private final FowsRxTransformerProvider rxTransformer;
 
-    public AbstractRxCompetableUseCase(AndroidRxTransformer rxTransformer) {
+    public AbstractRxCompetableUseCase(FowsRxTransformerProvider rxTransformer) {
         this.rxTransformer = rxTransformer;
     }
 

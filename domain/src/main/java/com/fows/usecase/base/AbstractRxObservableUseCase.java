@@ -1,6 +1,6 @@
 package com.fows.usecase.base;
 
-import com.fows.aux.AndroidRxTransformer;
+import com.fows.aux.FowsRxTransformerProvider;
 
 import rx.Observable;
 
@@ -9,9 +9,9 @@ import rx.Observable;
  */
 public abstract class AbstractRxObservableUseCase<T> implements UseCase<Observable<T>> {
 
-    private final AndroidRxTransformer rxTransformer;
+    private final FowsRxTransformerProvider rxTransformer;
 
-    public AbstractRxObservableUseCase(AndroidRxTransformer rxTransformer) {
+    public AbstractRxObservableUseCase(FowsRxTransformerProvider rxTransformer) {
         this.rxTransformer = rxTransformer;
     }
 

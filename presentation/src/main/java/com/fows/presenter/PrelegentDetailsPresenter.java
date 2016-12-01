@@ -28,17 +28,10 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
         view.showLoading();
         factory.getPrelegentDetailsUseCase(prelegentId)
                 .execute()
-                .subscribe(this::onSuccess, this::onError);
-
+                .subscribe(this::onPrelegentDetailsFetchSuccess, this::onPrelegentDetailsFetchError);
     }
 
-    @Override
-    public void onError(Throwable throwable) {
-        super.onError(throwable);
-        view.showError();
-    }
-
-    public void onSuccess(Prelegent prelegent) {
+    private void onPrelegentDetailsFetchSuccess(Prelegent prelegent) {
         view.hideLoading();
 
         this.prelegent = prelegent;
@@ -51,4 +44,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
         return prelegent.getPresentations().size();
     }
 
+    private void onPrelegentDetailsFetchError(Throwable throwable) {
+        onError(throwable);
+    }
 }
