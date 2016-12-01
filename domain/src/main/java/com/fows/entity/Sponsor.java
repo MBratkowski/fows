@@ -5,11 +5,9 @@ package com.fows.entity;
  */
 public class Sponsor {
 
-    private String name;
-
-    private String urlImage;
-
-    private String information;
+    private final String name;
+    private final String urlImage;
+    private final String information;
 
     public Sponsor(String name, String urlImage, String information) {
         this.name = name;

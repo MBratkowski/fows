@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">fows</string>
-    <string name="register">Zarejestruj się</string>
-    <string name="agenda">Agenda</string>
-    <string name="prelegents">Prelegenci</string>
-    <string name="sponsors">Sponsorzy i patroni</string>
-    <string name="contest">Konkurs</string>
-    <string name="map">Mapa</string>
-    <string name="information">o Konferencji</string>
-    <string name="links">Linki</string>
 </resources>
