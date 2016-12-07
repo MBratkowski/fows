@@ -29,7 +29,8 @@ dependencies:
   override:
     - ./gradlew dependencies || true
   post:
-   - ./gradlew check
+    - ./gradlew assembleDebug
+    - ./gradlew check
 
 
 ## Customize deployment commands
