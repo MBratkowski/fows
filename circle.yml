@@ -30,7 +30,6 @@ dependencies:
     - ./gradlew dependencies || true
   post:
    - ./gradlew check
-   - ./gradlew clean assembleRelease
 
 
 ## Customize deployment commands
