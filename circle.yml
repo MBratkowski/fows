@@ -6,7 +6,6 @@ general:
       - /feature\/.*/
       - /bugfix\/.*/
       - /release\/.*/
-      - beta #special branch for releasing to fabric's beta
 ## Customize the test machine
 machine:
 
@@ -30,6 +29,7 @@ dependencies:
   override:
     - ./gradlew dependencies || true
   post:
+   - ./gradlew check
    - ./gradlew clean assembleRelease
 
 
@@ -39,7 +39,3 @@ deployment:
     branch: develop
     commands:
       - sh ./ci/deploy-beta.sh
-  prod:
-    branch: master
-    commands:
-      - ./gradlew publishApkReleas

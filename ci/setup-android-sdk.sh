@@ -1,5 +1,5 @@
-echo y | android update sdk --no-ui --all --filter "tools,build-tools-24,platform-tools"
+echo y | android update sdk --no-ui --all --filter "tools,build-tools-25,platform-tools"
 echo y | android update sdk --no-ui --all --filter "android-25"
-echo y | android update sdk --no-ui --all --filter "build-tools-24.0.3"
+echo y | android update sdk --no-ui --all --filter "build-tools-25.0.1"
 echo y | android update sdk --no-ui --all --filter "platform-tools-preview"
-echo y | android update sdk --no-ui --all --filter "build-tools-24,extra-google-m2repository,extra-android-support,extra-android-m2repository"
+echo y | android update sdk --no-ui --all --filter "build-tools-25,extra-google-m2repository,extra-android-support,extra-android-m2repository"
