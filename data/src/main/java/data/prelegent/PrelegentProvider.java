@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class PrelegentProvider {
 
-    private List<Prelegent> prelegents = new ArrayList<>();
-    private List<Presentation> presentations = new ArrayList<>();
+    private final List<Prelegent> prelegents = new ArrayList<>();
+    private final List<Presentation> presentations = new ArrayList<>();
 
     public PrelegentProvider() {
         preparePresentationSet();

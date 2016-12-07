@@ -21,6 +21,7 @@ import com.fows.view.BaseView;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
@@ -31,7 +32,7 @@ public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> e
     P presenter;
 
     private ActivityComponent activityComponent;
-    private Snackbar snackbar;
+    private Unbinder unbinder;
 
     protected abstract void performFieldInjection(ActivityComponent appComponent);
 
@@ -42,7 +43,7 @@ public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> e
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
         performFieldInjection(getActivityComponent());
         presenter.takeView((V) this);
     }

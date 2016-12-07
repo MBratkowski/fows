@@ -55,14 +55,17 @@ public class Prelegent {
         }
     }
 
-    private final int id;
-    private final String name;
-    private final String surname;
-    private final String company;
-    private final String urlPersonImage;
-    private final String urlCompanyImage;
-    private final String information;
-    private final List<Presentation> presentations;
+    private int id;
+    private String name;
+    private String surname;
+    private String company;
+    private String urlPersonImage;
+    private String urlCompanyImage;
+    private String information;
+    private List<Presentation> presentations;
+
+    public Prelegent() {
+    }
 
     public Prelegent(Builder builder) {
         this.id = builder.id;
@@ -74,7 +77,6 @@ public class Prelegent {
         this.information = builder.information;
         this.presentations = builder.presentations;
     }
-
 
     public Prelegent(int id, String name, String surname, String company, String urlPersonImage, String urlCompanyImage,
             String information, List<Presentation> presentations) {

@@ -14,7 +14,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
     private final UseCaseFactory factory;
     private final int prelegentId;
 
-    private Prelegent prelegent;
+    private Prelegent prelegent = new Prelegent();
 
     public PrelegentDetailsPresenter(UseCaseFactory factory, int prelegentId) {
         this.factory = factory;

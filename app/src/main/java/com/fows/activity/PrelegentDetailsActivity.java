@@ -56,7 +56,7 @@ public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPrese
 
     @Override
     public void hideLoading() {
-        prelegentDetailsRecyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -89,8 +89,9 @@ public class PrelegentDetailsActivity extends BaseActivity<PrelegentDetailsPrese
     }
 
     private void setupRecyclerView() {
-        adapter = new PrelegentDetailsAdapter(presenter, this);
+        adapter = new PrelegentDetailsAdapter(presenter);
         prelegentDetailsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         prelegentDetailsRecyclerView.setHasFixedSize(true);
+        prelegentDetailsRecyclerView.setAdapter(adapter);
     }
 }

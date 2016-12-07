@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.fows.R;
-import com.fows.entity.Prelegent;
-import com.fows.entity.Presentation;
 import com.fows.presenter.PrelegentDetailsPresenter;
 import com.fows.view.PrelegentDetailsViewInformationRow;
 import com.fows.view.PrelegentDetailsViewPresentationRow;
@@ -60,8 +58,8 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     public static class PresentationItem extends RecyclerView.ViewHolder implements PrelegentDetailsViewPresentationRow {
 
-        @BindView(R.id.theme_text_view)
-        TextView themeTextView;
+        @BindView(R.id.start_time_text_view)
+        TextView startTimeTextView;
 
         public PresentationItem(View itemView) {
             super(itemView);
@@ -75,7 +73,7 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         @Override
         public void displayThemePresentation(String presentationOverview) {
-            themeTextView.setText(presentationOverview);
+            startTimeTextView.setText(presentationOverview);
         }
 
         @Override
@@ -90,21 +88,21 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
     private static final int INFORMATION_ITEM_TYPE = 0;
     private static final int PRESENTATION_ITEM_TYPE = 1;
 
-    private final LayoutInflater layoutInflater;
     private final PrelegentDetailsPresenter presenter;
 
-    public PrelegentDetailsAdapter(PrelegentDetailsPresenter presenter, Context context) {
+    public PrelegentDetailsAdapter(PrelegentDetailsPresenter presenter) {
         this.presenter = presenter;
-        layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case INFORMATION_ITEM_TYPE:
-                return new InformationItem(layoutInflater.inflate(R.layout.item_prelegent_details_information, parent, false));
+                return new InformationItem(LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item_prelegent_details_information, parent, false));
             case PRESENTATION_ITEM_TYPE:
-                return new PresentationItem(layoutInflater.inflate(R.layout.item_prelegent_details_presentation, parent, false));
+                return new PresentationItem(LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item_prelegent_details_presentation, parent, false));
             default:
                 new IllegalArgumentException("Invalid view type");
         }
