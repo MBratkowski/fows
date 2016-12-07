@@ -32,6 +32,11 @@ dependencies:
     - ./gradlew assembleDebug
     - ./gradlew check
 
+## Customize test commands
+test:
+  post:
+      - sh ./ci/copy-unit-result.sh
+
 
 ## Customize deployment commands
 deployment:
