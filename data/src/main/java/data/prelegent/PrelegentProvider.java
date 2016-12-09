@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PrelegentProvider {
 
-    private List<Prelegent> prelegents=new ArrayList<>();
+    private final List<Prelegent> prelegents = new ArrayList<>();
 
     public PrelegentProvider() {
         prelegents.add(new Prelegent.Builder(1, "Mateusz", "Bratkowski").build());

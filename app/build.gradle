@@ -10,8 +10,10 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-apply from: '../quality/quality.gradle'
-
+apply from: '../quality/lint.gradle'
+apply from: '../quality/pmd.gradle'
+apply from: '../quality/findbugs.gradle'
+apply from: '../quality/checkstyle.gradle'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
