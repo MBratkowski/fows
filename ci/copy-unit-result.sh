@@ -28,6 +28,6 @@ cp -r presentation/build/reports/pmd/* $CIRCLE_ARTIFACTS/presentation/reports/pm
 cp -r presentation/build/reports/findbugs/* $CIRCLE_ARTIFACTS/presentation/reports/findbugs/
 
 cp -r app/build/reports/checkstyle/* $CIRCLE_ARTIFACTS/app/reports/checkstyle/
-cp -r app/build/reports/pmd/* $CIRCLE_ARTIFACTS/data/reports/pmd/
+cp -r app/build/reports/pmd/* $CIRCLE_ARTIFACTS/app/reports/pmd/
 cp -r app/build/reports/findbugs/* $CIRCLE_ARTIFACTS/app/reports/findbugs/
 cp -r app/build/outputs/lint-results/* $CIRCLE_ARTIFACTS/app/reports/lint/
