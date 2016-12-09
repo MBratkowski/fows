@@ -26,7 +26,6 @@ public class ActivityModule {
         return activity;
     }
 
-
     @Provides
     @ActivityScope
     public Intent provideIntent(Activity activity) {

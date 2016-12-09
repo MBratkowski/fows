@@ -10,7 +10,10 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-
+apply from: '../quality/lint.gradle'
+apply from: '../quality/pmd.gradle'
+apply from: '../quality/findbugs.gradle'
+apply from: '../quality/checkstyle.gradle'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -18,7 +21,7 @@ repositories {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "25.0.1"
 
     defaultConfig {
         applicationId "com.fows"
@@ -57,7 +60,7 @@ android {
 }
 
 dependencies {
-    final SUPPORT_VERSION_LIBRARY = '25.0.0'
+    final SUPPORT_VERSION_LIBRARY = '25.0.1'
     final BUTTERKNIFE_VERSION = '8.4.0'
     final DAGGER_VERSION = '2.7'
     final CIRCLE_IMAGE_VIEW = '2.1.0'
@@ -83,7 +86,7 @@ dependencies {
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
     provided "javax.annotation:jsr250-api:1.0"
 
-    compile "com.android.support.constraint:constraint-layout:1.0.0-beta3"
+    compile "com.android.support.constraint:constraint-layout:1.0.0-beta4"
     compile "de.hdodenhof:circleimageview:2.1.0"
 
     compile 'io.reactivex:rxandroid:1.2.1'
