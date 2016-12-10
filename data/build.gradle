@@ -1,14 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-    }
-}
-
 apply plugin: 'java'
+apply from: '../quality/pmd.gradle'
+apply from: '../quality/findbugs.gradle'
+apply from: '../quality/checkstyle.gradle'
 
 dependencies {
     final GSON_VERSION = '2.8.0'

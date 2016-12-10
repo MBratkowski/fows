@@ -68,18 +68,18 @@ public class Prelegent {
     }
 
     public Prelegent(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.surname = builder.surname;
-        this.company = builder.company;
-        this.urlCompanyImage = builder.urlCompanyImage;
-        this.urlPersonImage = builder.urlPersonImage;
-        this.information = builder.information;
-        this.presentations = builder.presentations;
+        id = builder.id;
+        name = builder.name;
+        surname = builder.surname;
+        company = builder.company;
+        urlCompanyImage = builder.urlCompanyImage;
+        urlPersonImage = builder.urlPersonImage;
+        information = builder.information;
+        presentations = builder.presentations;
     }
 
     public Prelegent(int id, String name, String surname, String company, String urlPersonImage, String urlCompanyImage,
-            String information, List<Presentation> presentations) {
+            String information) {
         this.id = id;
         this.name = name;
         this.surname = surname;

@@ -27,8 +27,6 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     @Inject
     PrelegentListPresenter presenter;
 
-    private PrelegentAdapter adapter;
-
     @Override
     public void showError() {
         //TODO
@@ -66,7 +64,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     }
 
     private void setupRecyclerView() {
-        adapter = new PrelegentAdapter(presenter);
+        PrelegentAdapter adapter = new PrelegentAdapter(presenter);
         prelegentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         prelegentsRecyclerView.setHasFixedSize(true);
         prelegentsRecyclerView.setAdapter(adapter);

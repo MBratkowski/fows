@@ -4,7 +4,6 @@ package com.fows.entity;
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public class Presentation {
-
     public static class Builder {
 
         private final String author;
@@ -70,13 +69,5 @@ public class Presentation {
 
     public float getRating() {
         return rating;
-    }
-
-    public void setLiked(boolean liked) {
-        isLiked = liked;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
     }
 }

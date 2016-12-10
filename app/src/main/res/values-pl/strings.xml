@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">fows</string>
+<<<<<<< HEAD
     <string name="register">Zarejestruj się</string>
     <string name="agenda">Agenda</string>
     <string name="prelegents">Prelegenci</string>
@@ -16,4 +17,6 @@
 
     <!--Error messages-->
     <string name="error_default_message">Wystąpił błąd</string>
+=======
+>>>>>>> develop
 </resources>
