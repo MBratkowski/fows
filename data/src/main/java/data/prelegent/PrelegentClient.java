@@ -32,7 +32,7 @@ public class PrelegentClient implements PrelegentGateway {
     public Single<Prelegent> getPrelegentDetails(final int prelegentId) {
         return Observable.fromCallable(new Callable<Prelegent>() {
             @Override
-            public Prelegent call() {
+            public Prelegent call() throws Exception {
                 return provider.getPrelegents().get(prelegentId);
             }
         }).toSingle();
