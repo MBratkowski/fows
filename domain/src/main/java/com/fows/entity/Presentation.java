@@ -1,40 +1,28 @@
 package com.fows.entity;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
 public class Presentation {
 
-    private ArrayList<Prelegent> prelegents;
-
-    private String theme;
-
-    private String information;
-
-    private Date startTime;
-
-    private Date finishTime;
-
-    private String lang;
-
+    private final List<Prelegent> prelegents;
+    private final String theme;
+    private final String information;
+    private final String lang;
     private boolean isLiked;
-
     private float rating;
 
     //Zobaczymy w trakcie jaki najlepszy konstruktor będzie
-    public Presentation(ArrayList<Prelegent> prelegents, String theme, String information, Date startTime, Date finishTime, String lang) {
+    public Presentation(List<Prelegent> prelegents, String theme, String information, String lang) {
         this.prelegents = prelegents;
         this.theme = theme;
         this.information = information;
-        this.startTime = startTime;
-        this.finishTime = finishTime;
         this.lang = lang;
     }
 
-    public ArrayList<Prelegent> getPrelegents() {
+    public List<Prelegent> getPrelegents() {
         return prelegents;
     }
 
@@ -46,27 +34,15 @@ public class Presentation {
         return information;
     }
 
-    public int getHourStart() {
-        return startTime.getHours();
-    }
-
-    public int getMinuteStart() {
-        return startTime.getMinutes();
-    }
-
-    public int getHourTime() {
-        return finishTime.getHours();
-    }
-
-    public int getMinuteTime() {
-        return finishTime.getMinutes();
-    }
-
-    public int getDay() {
-        return startTime.getDay();
-    }
-
     public String getLang() {
         return lang;
+    }
+
+    public boolean isLiked() {
+        return isLiked;
+    }
+
+    public float getRating() {
+        return rating;
     }
 }

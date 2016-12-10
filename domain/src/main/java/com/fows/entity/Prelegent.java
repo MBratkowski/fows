@@ -7,18 +7,13 @@ public class Prelegent {
 
     public static class Builder {
 
-        private int id;
-
-        private String name;
-
-        private String surname;
+        private final int id;
+        private final String name;
+        private final String surname;
 
         private String company;
-
         private String urlPersonImage;
-
         private String urlCompanyImage;
-
         private String information;
 
         public Builder(int id, String name, String surname) {
@@ -52,32 +47,27 @@ public class Prelegent {
         }
     }
 
-    private int id;
-
-    private String name;
-
-    private String surname;
-
-    private String company;
-
-    private String urlPersonImage;
-
-    private String urlCompanyImage;
-
-    private String information;
+    private final int id;
+    private final String name;
+    private final String surname;
+    private final String company;
+    private final String urlPersonImage;
+    private final String urlCompanyImage;
+    private final String information;
 
     public Prelegent(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.surname = builder.surname;
-        this.company = builder.company;
-        this.urlCompanyImage = builder.urlCompanyImage;
-        this.urlPersonImage = builder.urlPersonImage;
-        this.information = builder.information;
+        id = builder.id;
+        name = builder.name;
+        surname = builder.surname;
+        company = builder.company;
+        urlCompanyImage = builder.urlCompanyImage;
+        urlPersonImage = builder.urlPersonImage;
+        information = builder.information;
     }
 
-
-    public Prelegent(String name, String surname, String company, String urlPersonImage, String urlCompanyImage, String information) {
+    public Prelegent(int id, String name, String surname, String company, String urlPersonImage, String urlCompanyImage,
+            String information) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.company = company;

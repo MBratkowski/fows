@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'me.tatarka.retrolambda'
-
+apply from: '../quality/pmd.gradle'
+apply from: '../quality/checkstyle.gradle'
+apply from: '../quality/findbugs.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
