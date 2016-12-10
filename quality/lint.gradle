@@ -12,6 +12,7 @@ android {
         disable 'IconColors'
         disable 'Overdraw'
         disable 'VectorDrawableCompat'
+        disable 'UnusedResources'
 
     }
 }
