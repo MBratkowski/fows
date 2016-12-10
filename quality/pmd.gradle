@@ -8,7 +8,6 @@ check.dependsOn 'pmd'
 task pmd(type: Pmd, group: 'Verification', description: 'Inspect sourcecode for bugs') {
     ruleSetFiles = files("$qualityConfigDir/pmd/pmd-ruleset.xml")
     ignoreFailures = false
-    ruleSets = []
 
     source 'src'
     include '**/*.java'

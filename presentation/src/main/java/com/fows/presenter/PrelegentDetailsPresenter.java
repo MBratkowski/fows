@@ -26,7 +26,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
                 .subscribe(this::onPrelegentDetailsFetchSuccess, this::onPrelegentDetailsFetchError);
     }
 
-    private void onPrelegentDetailsFetchSuccess(Prelegent prelegent) {
+    private void onPrelegentDetailsFetchSuccess(Prelegent ignored) {
         view.hideLoading();
     }
 
