@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/presentation_item_left_margin"
         android:layout_marginStart="@dimen/presentation_item_left_margin"
-        app:srcCompat="@drawable/ic_presentation"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

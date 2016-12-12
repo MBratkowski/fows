@@ -1,5 +1,8 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
     <dimen name="prelegent_item_height">72dp</dimen>
     <dimen name="prelegent_item_horizontal_margin">16dp</dimen>
     <dimen name="prelegent_item_text_large">16sp</dimen>
@@ -10,4 +13,9 @@
     <dimen name="prelegent_item_company_margin">16dp</dimen>
     <dimen name="prelegent_item_photo_width">48dp</dimen>
     <dimen name="prelegent_item_photo_height">48dp</dimen>
+
+    <dimen name="presentation_item_height">72dp</dimen>
+    <dimen name="presentation_item_left_margin">8dp</dimen>
+    <dimen name="presentation_item_text_margin">8dp</dimen>
+    <dimen name="presentation_item_right_margin">16dp</dimen>
 </resources>

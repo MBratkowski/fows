@@ -1,6 +1,5 @@
 package com.fows.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,8 +102,6 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
             case PRESENTATION_ITEM_TYPE:
                 return new PresentationItem(LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.item_prelegent_details_presentation, parent, false));
-            default:
-                new IllegalArgumentException("Invalid view type");
         }
         return null;
     }
@@ -120,11 +117,7 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
-            return INFORMATION_ITEM_TYPE;
-        } else {
-            return PRESENTATION_ITEM_TYPE;
-        }
+        return position == HEADER_POSTIION ? INFORMATION_ITEM_TYPE : PRESENTATION_ITEM_TYPE;
     }
 
     @Override
