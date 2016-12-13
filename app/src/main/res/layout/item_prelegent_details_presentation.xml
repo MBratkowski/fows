@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="72dp"
     android:orientation="horizontal"
     android:paddingBottom="8dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="8dp">
 
-    <TextView
-        android:id="@+id/start_time_text_view"
+    <LinearLayout
+        android:id="@+id/day_and_time_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        tools:text="16:40"
-        />
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/start_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="12sp"
+            tools:text="16:40" />
+
+        <TextView
+            android:id="@+id/day_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            tools:text="Day 1" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/theme_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toLeftOf="@+id/more_information_image_view"
+        android:layout_toRightOf="@+id/day_and_time_container"
+        android:layout_toStartOf="@+id/more_information_image_view"
         android:maxLines="3"
-        android:text="sdasas"
-        />
+        android:text="@string/test_string" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/more_information_image_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/ic_info" />
+
+</RelativeLayout>

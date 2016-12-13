@@ -1,6 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -10,8 +8,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="16dp"
-        android:src="@color/colorPrimary"
-        />
+        android:src="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/name_text_view"
@@ -22,8 +19,7 @@
         android:layout_toRightOf="@+id/prelegent_image_view"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="@dimen/prelegent_item_text_large"
-        tools:text="Imie"
-        />
+        tools:text="Imie" />
 
     <TextView
         android:id="@+id/surname_text_view"
@@ -35,8 +31,7 @@
         android:layout_toRightOf="@+id/name_text_view"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="@dimen/prelegent_item_text_large"
-        tools:text="Nazwisko"
-        />
+        tools:text="Nazwisko" />
 
 
     <LinearLayout
@@ -48,38 +43,43 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/prelegent_image_view"
+            android:id="@+id/social_medium_image_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
-            android:src="@android:color/holo_blue_bright"
-            />
+            android:src="@android:color/holo_blue_bright" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/prelegent_image_view"
+            android:id="@+id/social_twitter_image_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
-            android:src="@android:color/holo_green_light"
-            />
+            android:src="@android:color/holo_green_light" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/prelegent_image_view"
+            android:id="@+id/social_facebook_prelegent_image_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
-            android:src="@android:color/holo_orange_light"
-            />
+            android:src="@android:color/holo_orange_light" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/prelegent_image_view"
+            android:id="@+id/social_youtube_prelegent_image_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
-            android:src="@android:color/holo_red_light"
-            />
+            android:src="@android:color/holo_red_light" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/company_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_text_view"
+        android:layout_toEndOf="@+id/prelegent_image_view"
+        android:layout_toRightOf="@+id/prelegent_image_view"
+        tools:text="Company name" />
 
     <TextView
         android:id="@+id/description_text_view"
@@ -91,20 +91,22 @@
         android:layout_marginRight="16dp"
         android:text="@string/test_string" />
 
-    <TextView
-        android:id="@+id/company_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name_text_view"
-        android:layout_toEndOf="@+id/prelegent_image_view"
-        android:layout_toRightOf="@+id/prelegent_image_view"
-        tools:text="assassa" />
-
     <View
+        android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_below="@+id/social_button_container"
-        android:background="@android:color/darker_gray"
-        />
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/prelegent_presentation_header_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/item_prelegent_details_information_header_presentation_list" />
 
 </RelativeLayout>
