@@ -7,4 +7,7 @@
 
     <!--Error messages-->
     <string name="error_default_message">An error occurred</string>
+
+    <string name="item_prelegent_details_information_header_presentation_list">%1$s %2$s on the conference</string>
+    <string name="item_prelegent_details_number_day_of_presentation">Day %1$d</string>
 </resources>
