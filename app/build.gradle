@@ -51,9 +51,8 @@ android {
 
 dependencies {
     final SUPPORT_VERSION_LIBRARY = '25.0.1'
-    final BUTTERKNIFE_VERSION = '8.4.0'
+    final BUTTER_KNIFE_VERSION = '8.4.0'
     final DAGGER_VERSION = '2.7'
-    final CIRCLE_IMAGE_VIEW = '2.1.0'
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(":presentation")
@@ -70,8 +69,8 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$SUPPORT_VERSION_LIBRARY"
     compile "com.android.support:design:$SUPPORT_VERSION_LIBRARY"
 
-    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+    compile "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
 
     annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
     compile "com.google.dagger:dagger:$DAGGER_VERSION"
@@ -82,4 +81,6 @@ dependencies {
 
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
