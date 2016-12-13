@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.fows.R;
 import com.fows.presenter.PrelegentListPresenter;
 import com.fows.view.PrelegentListRowView;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,7 +41,10 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
 
         @Override
         public void displayPhoto(String urlPhoto) {
-            //TODO Load photo with use a Picasso or different image library
+            Picasso.with(prelegentCircleImageView.getContext())
+                    .load(urlPhoto)
+                    .error(R.color.colorPrimaryDark)
+                    .into(prelegentCircleImageView);
         }
 
         @Override
