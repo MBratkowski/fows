@@ -9,9 +9,11 @@ public interface PrelegentDetailsViewInformationRow {
 
     void displaySurname(String surname);
 
-    void displayDescription(String descritpion);
+    void displayDescription(String description);
 
     void displayCompany(String company);
 
     void displayPhoto(String urlPhoto);
+
+    void displayPrelegentHeader(String name, String surname);
 }

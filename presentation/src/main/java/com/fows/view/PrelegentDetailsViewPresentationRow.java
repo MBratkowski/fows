@@ -7,7 +7,7 @@ public interface PrelegentDetailsViewPresentationRow {
 
     void displayStartTimePresentation(String startTime);
 
-    void displayThemePresentation(String theme);
+    void displayDayPresentation(int day);
 
-    void displayAuthorPresntation(String author);
+    void displayThemePresentation(String theme);
 }
