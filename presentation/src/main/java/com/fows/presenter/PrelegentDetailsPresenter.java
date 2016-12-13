@@ -13,7 +13,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
 
     private final UseCaseFactory factory;
     private final int prelegentId;
-    private Prelegent prelegent = new Prelegent();
+    private Prelegent prelegent;
 
     public PrelegentDetailsPresenter(UseCaseFactory factory, int prelegentId) {
         this.factory = factory;
@@ -30,21 +30,29 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
     }
 
     public void configureInformationRow(PrelegentDetailsViewInformationRow viewHolder) {
-        viewHolder.displayPhoto(prelegent.getUrlPersonImage());
-        viewHolder.displayName(prelegent.getName());
-        viewHolder.displayDescription(prelegent.getInformation());
-        viewHolder.displaySurname(prelegent.getSurname());
-        viewHolder.displayCompany(prelegent.getCompany());
+        if (prelegent != null) {
+            viewHolder.displayPhoto(prelegent.getUrlPersonImage());
+            viewHolder.displayName(prelegent.getName());
+            viewHolder.displayDescription(prelegent.getInformation());
+            viewHolder.displaySurname(prelegent.getSurname());
+            viewHolder.displayCompany(prelegent.getCompany());
+        }
     }
 
     public void configurePresentationRow(PrelegentDetailsViewPresentationRow viewHolder, int position) {
-        viewHolder.displayStartTimePresentation(prelegent.getPresentations().get(position).getStartTime());
-        viewHolder.displayThemePresentation(prelegent.getPresentations().get(position).getTheme());
-        viewHolder.displayAuthorPresntation(prelegent.getPresentations().get(position).getAuthor());
+        if (prelegent != null) {
+            viewHolder.displayStartTimePresentation(prelegent.getPresentations().get(position).getStartTime());
+            viewHolder.displayThemePresentation(prelegent.getPresentations().get(position).getTheme());
+            //viewHolder.displayDayPresentation(prelegent.getPresentations().get(position).getAuthor());
+        }
     }
 
     public int getPrelegentsPresentationCount() {
-        return prelegent.getPresentations().size();
+        if (prelegent == null) {
+            return 0;
+        } else {
+            return prelegent.getPresentations().size();
+        }
     }
 
     private void onPrelegentDetailsFetchSuccess(Prelegent prelegent) {
