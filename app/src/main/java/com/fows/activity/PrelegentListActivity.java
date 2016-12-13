@@ -33,7 +33,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     public void showPrelegentDetails(int prelegentId) {
-        Navigator.startPrelegentDetailsActivty(this, prelegentId);
+        Navigator.startPrelegentDetailsActivity(this, prelegentId);
     }
 
     @Override

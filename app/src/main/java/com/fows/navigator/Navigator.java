@@ -14,9 +14,17 @@ public final class Navigator {
         throw new UnsupportedOperationException("No instances");
     }
 
-    public static void startPrelegentDetailsActivty(Context context, int prelegentId) {
+    public static void startPrelegentDetailsActivity(Context context, int prelegentId) {
         Intent intent = new Intent(context, PrelegentDetailsActivity.class);
         intent.putExtra(PrelegentDetailsActivity.EXTRA_PRELGENT_ID, prelegentId);
         context.startActivity(intent);
     }
+
+    public static void startPresentationDetailsActivity(Context context, int presentationId) {
+        //TODO
+        /*Intent intent=new Intent(context, PresentationDetailsActivity.class);
+        intent.putExtra(PresentationDetailsActivity.EXTRA_PRESENTATION_ID, presentationId);
+        context.startActivities(intent);*/
+    }
+
 }
