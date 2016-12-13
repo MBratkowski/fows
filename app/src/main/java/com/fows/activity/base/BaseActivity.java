@@ -46,6 +46,7 @@ public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> e
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        unbinder.unbind();
         presenter.dropView();
     }
 
