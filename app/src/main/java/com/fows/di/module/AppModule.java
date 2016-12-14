@@ -1,8 +1,10 @@
 package com.fows.di.module;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.fows.gateway.PrelegentGateway;
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -50,6 +52,12 @@ public class AppModule {
     @Singleton
     public PrelegentGateway providePrelegentGateway(PrelegentClient prelegentClient) {
         return prelegentClient;
+    }
+
+    @Provides
+    @Singleton
+    public Picasso providePicasso(Application application) {
+        return Picasso.with(application.getBaseContext());
     }
 }
 
