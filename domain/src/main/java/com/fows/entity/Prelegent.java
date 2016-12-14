@@ -15,7 +15,6 @@ public class Prelegent {
 
         private String company;
         private String urlPersonImage;
-        private String urlCompanyImage;
         private String information;
         private List<Presentation> presentations;
 
@@ -35,10 +34,6 @@ public class Prelegent {
             return this;
         }
 
-        public Builder companyImage(String urlCompanyImage) {
-            this.urlCompanyImage = urlCompanyImage;
-            return this;
-        }
 
         public Builder information(String information) {
             this.information = information;
@@ -60,7 +55,6 @@ public class Prelegent {
     private String surname;
     private String company;
     private String urlPersonImage;
-    private String urlCompanyImage;
     private String information;
     private List<Presentation> presentations;
 
@@ -72,7 +66,6 @@ public class Prelegent {
         name = builder.name;
         surname = builder.surname;
         company = builder.company;
-        urlCompanyImage = builder.urlCompanyImage;
         urlPersonImage = builder.urlPersonImage;
         information = builder.information;
         presentations = builder.presentations;
@@ -85,7 +78,6 @@ public class Prelegent {
         this.surname = surname;
         this.company = company;
         this.urlPersonImage = urlPersonImage;
-        this.urlCompanyImage = urlCompanyImage;
         this.information = information;
         this.presentations = presentations;
     }
@@ -112,10 +104,6 @@ public class Prelegent {
 
     public String getUrlPersonImage() {
         return urlPersonImage;
-    }
-
-    public String getUrlCompanyImage() {
-        return urlCompanyImage;
     }
 
     public List<Presentation> getPresentations() {
