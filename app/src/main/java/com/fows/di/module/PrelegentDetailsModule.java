@@ -6,6 +6,7 @@ import com.fows.UseCaseFactory;
 import com.fows.activity.PrelegentDetailsActivity;
 import com.fows.di.scope.ActivityScope;
 import com.fows.presenter.PrelegentDetailsPresenter;
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Named;
 
@@ -27,9 +28,8 @@ public class PrelegentDetailsModule {
 
     @Provides
     @ActivityScope
-    public PrelegentDetailsPresenter providePrelegentDetailsPresenter(UseCaseFactory useCaseFactory,
+    public PrelegentDetailsPresenter providePrelegentDetailsPresenter(UseCaseFactory useCaseFactory,Picasso picasso,
             @Named("prelegentId") int prelegentId) {
-        return new PrelegentDetailsPresenter(useCaseFactory, prelegentId);
+        return new PrelegentDetailsPresenter(useCaseFactory, picasso, prelegentId);
     }
-
 }

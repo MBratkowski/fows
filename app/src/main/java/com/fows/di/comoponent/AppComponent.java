@@ -4,6 +4,7 @@ import com.fows.UseCaseFactory;
 import com.fows.application.FowsApplication;
 import com.fows.di.module.AppModule;
 import com.fows.gateway.PrelegentGateway;
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Singleton;
 
@@ -20,4 +21,6 @@ public interface AppComponent {
     PrelegentGateway getPrelegentGateway();
 
     UseCaseFactory getUseCaseFactory();
+
+    Picasso getPicassso();
 }
