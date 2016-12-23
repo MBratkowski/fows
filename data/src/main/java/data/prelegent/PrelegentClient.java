@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
-
-import rx.Observable;
-import rx.Single;
+import io.reactivex.Single;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
@@ -25,17 +23,17 @@ public class PrelegentClient implements PrelegentGateway {
 
     @Override
     public Single<List<Prelegent>> getPrelegents() {
-        return Observable.from(provider.getPrelegents()).toList().toSingle();
+        return Single.just(provider.getPrelegents());
     }
 
     @Override
     public Single<Prelegent> getPrelegentDetails(final int prelegentId) {
-        return Observable.fromCallable(new Callable<Prelegent>() {
+        return Single.fromCallable(new Callable<Prelegent>() {
             @Override
             public Prelegent call() throws Exception {
                 return provider.getPrelegents().get(prelegentId);
             }
-        }).toSingle();
+        });
 
     }
 }

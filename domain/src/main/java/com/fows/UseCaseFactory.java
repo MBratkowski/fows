@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import rx.Single;
+import io.reactivex.Single;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.

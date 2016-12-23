@@ -4,7 +4,8 @@ import com.fows.entity.Prelegent;
 
 import java.util.List;
 
-import rx.Single;
+import io.reactivex.Single;
+
 
 /**
  * Created by ByJacob on 2016-11-12.

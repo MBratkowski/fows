@@ -106,7 +106,7 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         @Override
         public void displayDayPresentation(int day) {
-            dayTextView.setText(String.format());
+            //dayTextView.setText(String.format());
         }
 
         @Override

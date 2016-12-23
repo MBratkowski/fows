@@ -2,7 +2,7 @@ package com.fows.usecase.base;
 
 import com.fows.aux.FowsRxTransformerProvider;
 
-import rx.Single;
+import io.reactivex.Single;
 
 /**
  * Created by mateusz.bratkowski on 28/11/16.

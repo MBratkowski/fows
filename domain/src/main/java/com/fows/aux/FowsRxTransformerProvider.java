@@ -3,10 +3,17 @@ package com.fows.aux;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import rx.Completable;
-import rx.Observable;
-import rx.Scheduler;
-import rx.Single;
+import io.reactivex.Completable;
+import io.reactivex.CompletableSource;
+import io.reactivex.CompletableTransformer;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
+import io.reactivex.Scheduler;
+import io.reactivex.Single;
+import io.reactivex.SingleSource;
+import io.reactivex.SingleTransformer;
+
 
 /**
  * Created by mateusz.bratkowski on 23/11/16.
@@ -23,29 +30,29 @@ public final class FowsRxTransformerProvider {
         this.observerOnScheduler = observerOnScheduler;
     }
 
-    public <T> Single.Transformer<T, T> getSingleSchedulers() {
-        return new Single.Transformer<T, T>() {
+    public <T> SingleTransformer<T, T> getSingleSchedulers() {
+        return new SingleTransformer<T, T>() {
             @Override
-            public Single<T> call(Single<T> single) {
-                return single.subscribeOn(subscribeOnScheduler).observeOn(observerOnScheduler);
+            public SingleSource<T> apply(Single<T> upstream) {
+                return upstream.subscribeOn(subscribeOnScheduler).observeOn(observerOnScheduler);
             }
         };
     }
 
-    public <T> Observable.Transformer<T, T> getObservableSchedulers() {
-        return new Observable.Transformer<T, T>() {
+    public <T> ObservableTransformer<T, T> getObservableSchedulers() {
+        return new ObservableTransformer<T, T>() {
             @Override
-            public Observable<T> call(Observable<T> observable) {
-                return observable.subscribeOn(subscribeOnScheduler).observeOn(observerOnScheduler);
+            public ObservableSource<T> apply(Observable<T> upstream) {
+                return upstream.subscribeOn(subscribeOnScheduler).observeOn(observerOnScheduler);
             }
         };
     }
 
-    public <T> Completable.CompletableTransformer getCompletableSchedulers() {
-        return new Completable.CompletableTransformer() {
+    public <T> CompletableTransformer getCompletableSchedulers() {
+        return new CompletableTransformer() {
             @Override
-            public Completable call(Completable completable) {
-                return completable.subscribeOn(subscribeOnScheduler).observeOn(observerOnScheduler);
+            public CompletableSource apply(Completable upstream) {
+                return upstream.subscribeOn(subscribeOnScheduler).observeOn(observerOnScheduler);
             }
         };
     }

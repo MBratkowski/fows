@@ -10,9 +10,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import data.prelegent.PrelegentClient;
-import rx.Scheduler;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.

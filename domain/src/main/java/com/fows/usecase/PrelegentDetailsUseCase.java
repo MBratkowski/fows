@@ -5,7 +5,8 @@ import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.fows.usecase.base.AbstractRxSingleUseCase;
 
-import rx.Single;
+import io.reactivex.Single;
+
 
 /**
  * Created by mateusz.bratkowski on 20/11/16.
