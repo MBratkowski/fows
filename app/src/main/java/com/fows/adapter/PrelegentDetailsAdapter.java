@@ -68,10 +68,8 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
 
         @Override
-        public void displayPhoto(String urlPhoto) {
-            Picasso.with(prelgentCircleImageView.getContext())
-                    .load(urlPhoto)
-                    .error(R.color.colorPrimaryDark)
+        public void displayPhoto(Picasso picasso, String urlPhoto) {
+            picasso.load(urlPhoto)
                     .into(prelgentCircleImageView);
         }
 
@@ -106,7 +104,9 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         @Override
         public void displayDayPresentation(int day) {
-            //dayTextView.setText(String.format());
+            Context context = dayTextView.getContext();
+            String textViewFormatter = context.getString(R.string.item_prelegent_details_number_day_of_presentation);
+            dayTextView.setText(String.format(textViewFormatter, day));
         }
 
         @Override

@@ -3,6 +3,7 @@ package com.fows.di.module;
 import com.fows.UseCaseFactory;
 import com.fows.di.scope.ActivityScope;
 import com.fows.presenter.PrelegentListPresenter;
+import com.squareup.picasso.Picasso;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +16,7 @@ public class PrelegentListModule {
 
     @Provides
     @ActivityScope
-    PrelegentListPresenter providePrelegentListPresenter(UseCaseFactory useCaseFactory) {
-        return new PrelegentListPresenter(useCaseFactory);
+    PrelegentListPresenter providePrelegentListPresenter(UseCaseFactory useCaseFactory, Picasso picasso) {
+        return new PrelegentListPresenter(useCaseFactory, picasso);
     }
 }
