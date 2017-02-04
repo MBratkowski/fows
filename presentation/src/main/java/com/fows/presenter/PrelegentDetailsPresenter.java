@@ -5,22 +5,19 @@ import com.fows.entity.Prelegent;
 import com.fows.view.PrelegentDetailsView;
 import com.fows.view.PrelegentDetailsViewInformationRow;
 import com.fows.view.PrelegentDetailsViewPresentationRow;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by mateusz.bratkowski on 20/11/16.
  */
 public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
 
-    private final Picasso picasso;
     private final UseCaseFactory factory;
     private final int prelegentId;
 
     private Prelegent prelegent;
 
-    public PrelegentDetailsPresenter(UseCaseFactory factory, Picasso picasso, int prelegentId) {
+    public PrelegentDetailsPresenter(UseCaseFactory factory, int prelegentId) {
         this.factory = factory;
-        this.picasso = picasso;
         this.prelegentId = prelegentId;
     }
 
@@ -35,7 +32,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
 
     public void configureInformationRow(PrelegentDetailsViewInformationRow viewHolder) {
         if (prelegent != null) {
-            viewHolder.displayPhoto(picasso, prelegent.getUrlPersonImage());
+            viewHolder.displayPhoto( prelegent.getUrlPersonImage());
             viewHolder.displayName(prelegent.getName());
             viewHolder.displayDescription(prelegent.getInformation());
             viewHolder.displaySurname(prelegent.getSurname());

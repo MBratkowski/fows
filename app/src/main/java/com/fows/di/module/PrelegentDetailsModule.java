@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.fows.UseCaseFactory;
 import com.fows.activity.PrelegentDetailsActivity;
 import com.fows.di.scope.ActivityScope;
+import com.fows.di.scope.PerView;
 import com.fows.presenter.PrelegentDetailsPresenter;
 import com.squareup.picasso.Picasso;
 
@@ -20,16 +21,16 @@ import dagger.Provides;
 public class PrelegentDetailsModule {
 
     @Provides
-    @ActivityScope
+    @PerView
     @Named("prelegentId")
     public int providePrelegentId(Intent intent) {
         return intent.getExtras().getInt(PrelegentDetailsActivity.EXTRA_PRELGENT_ID);
     }
 
     @Provides
-    @ActivityScope
-    public PrelegentDetailsPresenter providePrelegentDetailsPresenter(UseCaseFactory useCaseFactory,Picasso picasso,
+    @PerView
+    public PrelegentDetailsPresenter providePrelegentDetailsPresenter(UseCaseFactory useCaseFactory,
             @Named("prelegentId") int prelegentId) {
-        return new PrelegentDetailsPresenter(useCaseFactory, picasso, prelegentId);
+        return new PrelegentDetailsPresenter(useCaseFactory, prelegentId);
     }
 }

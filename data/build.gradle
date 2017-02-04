@@ -1,17 +1,16 @@
 apply plugin: 'java'
-apply from: '../quality/pmd.gradle'
-apply from: '../quality/findbugs.gradle'
-apply from: '../quality/checkstyle.gradle'
+apply from: '../config/dependencies.gradle'
+apply from: '../config/quality/pmd.gradle'
+apply from: '../config/quality/findbugs.gradle'
+apply from: '../config/quality/checkstyle.gradle'
 
 dependencies {
-    final GSON_VERSION = '2.8.0'
-
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':domain')
 
-    compile "com.google.code.gson:gson:$GSON_VERSION"
     compile group: 'javax.inject', name: 'javax.inject', version: '1'
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+

@@ -68,9 +68,9 @@ public class PrelegentDetailsAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
 
         @Override
-        public void displayPhoto(Picasso picasso, String urlPhoto) {
-            picasso.load(urlPhoto)
-                    .into(prelgentCircleImageView);
+        public void displayPhoto(String urlPhoto) {
+            /*picasso.load(urlPhoto)
+                    .into(prelgentCircleImageView);*/
         }
 
         @Override

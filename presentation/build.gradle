@@ -1,15 +1,14 @@
 apply plugin: 'java'
 apply plugin: 'me.tatarka.retrolambda'
-apply from: '../quality/pmd.gradle'
-apply from: '../quality/checkstyle.gradle'
-apply from: '../quality/findbugs.gradle'
+apply from: '../config/dependencies.gradle'
+apply from: '../config/quality/pmd.gradle'
+apply from: '../config/quality/checkstyle.gradle'
+apply from: '../config/quality/findbugs.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':domain')
-
-    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"
+sourceCompatibility = config.sourceCompatibility
+targetCompatibility = config.targetCompatibility

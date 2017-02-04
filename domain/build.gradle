@@ -1,13 +1,14 @@
 apply plugin: 'java'
-apply from: '../quality/pmd.gradle'
-apply from: '../quality/findbugs.gradle'
-apply from: '../quality/checkstyle.gradle'
+apply from: '../config/dependencies.gradle'
+apply from: '../config/quality/pmd.gradle'
+apply from: '../config/quality/findbugs.gradle'
+apply from: '../config/quality/checkstyle.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile group: 'javax.inject', name: 'javax.inject', version: '1'
-    compile 'io.reactivex.rxjava2:rxjava:2.0.2'
+    compile deps.rx_java
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+sourceCompatibility = 1.7
+targetCompatibility = 1.7

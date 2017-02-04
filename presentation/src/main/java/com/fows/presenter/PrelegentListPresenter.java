@@ -4,7 +4,6 @@ import com.fows.UseCaseFactory;
 import com.fows.entity.Prelegent;
 import com.fows.view.PrelegentListRowView;
 import com.fows.view.PrelegentListView;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -14,12 +13,10 @@ import java.util.List;
 public class PrelegentListPresenter extends Presenter<PrelegentListView> {
 
     private final UseCaseFactory factory;
-    private final Picasso picasso;
     private List<Prelegent> prelegents;
 
-    public PrelegentListPresenter(UseCaseFactory factory, Picasso picasso) {
+    public PrelegentListPresenter(UseCaseFactory factory) {
         this.factory = factory;
-        this.picasso = picasso;
     }
 
     @Override
@@ -37,7 +34,7 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> {
     public void configurePrelegentRow(PrelegentListRowView view, int position) {
         view.displayName(prelegents.get(position).getName());
         view.displaySurname(prelegents.get(position).getSurname());
-        view.displayPhoto(picasso, prelegents.get(position).getUrlPersonImage());
+        view.displayPhoto(prelegents.get(position).getUrlPersonImage());
     }
 
     public void itemClick(int position) {
