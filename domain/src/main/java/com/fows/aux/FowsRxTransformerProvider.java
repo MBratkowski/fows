@@ -14,7 +14,6 @@ import io.reactivex.Single;
 import io.reactivex.SingleSource;
 import io.reactivex.SingleTransformer;
 
-
 /**
  * Created by mateusz.bratkowski on 23/11/16.
  */

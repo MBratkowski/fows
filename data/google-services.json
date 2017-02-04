@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "212221646381",
+    "firebase_url": "https://fows-7f79b.firebaseio.com",
+    "project_id": "fows-7f79b",
+    "storage_bucket": "fows-7f79b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212221646381:android:178219fd627445e3",
+        "android_client_info": {
+          "package_name": "com.fows.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212221646381-ckudf03ork9ehcj8c0ia0b46fau2t62t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZGBb8b5X_u0TEtKHCuA_eAiWjoYLLAdc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212221646381-ckudf03ork9ehcj8c0ia0b46fau2t62t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
