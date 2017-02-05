@@ -52,6 +52,8 @@ public class PrelegentDetailsPresenter extends BasePresenter<PrelegentDetailsVie
     public int getPrelegentsPresentationCount() {
         if (prelegent == null) {
             return 0;
+        } else if (prelegent.getPresentations() == null) {
+            return 0;
         } else {
             return prelegent.getPresentations().size();
         }

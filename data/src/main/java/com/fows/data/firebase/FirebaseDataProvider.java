@@ -2,6 +2,7 @@ package com.fows.data.firebase;
 
 import android.util.Log;
 
+import com.fows.data.DbConstants;
 import com.fows.data.firebase.model.PrelegentFirebaseModel;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
@@ -63,11 +64,27 @@ public class FirebaseDataProvider implements PrelegentGateway {
     }
 
     @Override
-    public Single<Prelegent> getPrelegentDetails(int prelegentId) {
+    public Single<Prelegent> getPrelegentDetails(final int prelegentId) {
         return Single.create(new SingleOnSubscribe<Prelegent>() {
             @Override
-            public void subscribe(SingleEmitter<Prelegent> e) throws Exception {
+            public void subscribe(final SingleEmitter<Prelegent> emitter) throws Exception {
+                firebaseDatabase.getReference(DbConstants.PRELEGENTS_KEY)
+                        .child(String.valueOf(prelegentId))
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                PrelegentFirebaseModel firebaseModel = dataSnapshot.getValue(PrelegentFirebaseModel.class);
+                                emitter.onSuccess(new Prelegent(firebaseModel.getId(),
+                                        firebaseModel.getFirstName(),
+                                        firebaseModel.getLastName()));
+                            }
 
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                emitter.onError(new DatabaseException(databaseError.getMessage()));
+                                Log.d(FirebaseDataProvider.class.getSimpleName(), databaseError.getDetails());
+                            }
+                        });
             }
         });
     }

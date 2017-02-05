@@ -29,6 +29,6 @@ public class CloudEntityGateway implements PrelegentGateway {
 
     @Override
     public Single<Prelegent> getPrelegentDetails(int prelegentId) {
-        return null;
+        return firebaseDataProvider.getPrelegentDetails(prelegentId);
     }
 }
