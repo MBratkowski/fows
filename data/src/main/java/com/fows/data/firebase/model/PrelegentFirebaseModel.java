@@ -8,12 +8,16 @@ import com.google.firebase.database.PropertyName;
 public class PrelegentFirebaseModel {
 
     @PropertyName("first_name")
-    private String firstName;
+    String firstName;
 
     @PropertyName("last_name")
-    private String lastName;
+    String lastName;
+
+    @PropertyName("id")
+    int id;
 
     public PrelegentFirebaseModel() {
+        //Here must be empty constructor for JSON deserialization by Firebase
     }
 
     public String getFirstName() {
@@ -22,5 +26,9 @@ public class PrelegentFirebaseModel {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public int getId() {
+        return id;
     }
 }

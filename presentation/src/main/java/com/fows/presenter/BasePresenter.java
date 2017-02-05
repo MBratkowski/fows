@@ -5,16 +5,16 @@ import com.fows.view.BaseView;
 /**
  * Created by mateusz.bratkowski on 20/11/16.
  */
-public class Presenter<ViewType extends BaseView> {
+public class BasePresenter<ViewType extends BaseView> {
 
     ViewType view;
 
-    public final void takeView(ViewType view) {
+    public final void onAttachView(ViewType view) {
         this.view = view;
-        onViewTaken(view);
+        onAttachedView(view);
     }
 
-    public final void dropView() {
+    public final void onDetachView() {
         this.view = null;
     }
 
@@ -24,7 +24,7 @@ public class Presenter<ViewType extends BaseView> {
         }
     }
 
-    protected void onViewTaken(ViewType view) {
+    protected void onAttachedView(ViewType view) {
         // Optional method to use by implementation class
     }
 }

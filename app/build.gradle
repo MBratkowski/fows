@@ -80,4 +80,6 @@ dependencies {
     compile deps.rx_android
 
     compile deps.picasso
+
+    compile deps.super_recycler
 }

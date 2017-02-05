@@ -10,7 +10,7 @@ import com.fows.di.comoponent.ActivityComponent;
 import com.fows.di.comoponent.AppComponent;
 import com.fows.di.comoponent.DaggerActivityComponent;
 import com.fows.di.module.ActivityModule;
-import com.fows.presenter.Presenter;
+import com.fows.presenter.BasePresenter;
 import com.fows.view.BaseView;
 
 import javax.inject.Inject;
@@ -21,7 +21,7 @@ import butterknife.Unbinder;
 /**
  * Created by mateusz.bratkowski on 11/11/16.
  */
-public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseView> extends AppCompatActivity {
 
     @Inject
     P presenter;
@@ -40,14 +40,14 @@ public abstract class BaseActivity<P extends Presenter<V>, V extends BaseView> e
         setContentView(getLayoutId());
         unbinder = ButterKnife.bind(this);
         performFieldInjection(getActivityComponent());
-        presenter.takeView((V) this);
+        presenter.onAttachView((V) this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
-        presenter.dropView();
+        presenter.onDetachView();
     }
 
     public P getPresenter() {

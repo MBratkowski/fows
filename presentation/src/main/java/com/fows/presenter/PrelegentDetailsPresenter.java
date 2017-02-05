@@ -9,7 +9,7 @@ import com.fows.view.PrelegentDetailsViewPresentationRow;
 /**
  * Created by mateusz.bratkowski on 20/11/16.
  */
-public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
+public class PrelegentDetailsPresenter extends BasePresenter<PrelegentDetailsView> {
 
     private final UseCaseFactory factory;
     private final int prelegentId;
@@ -22,8 +22,8 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
     }
 
     @Override
-    protected void onViewTaken(PrelegentDetailsView view) {
-        super.onViewTaken(view);
+    protected void onAttachedView(PrelegentDetailsView view) {
+        super.onAttachedView(view);
         view.showLoading();
         factory.getPrelegentDetailsUseCase(prelegentId)
                 .execute()
@@ -32,7 +32,7 @@ public class PrelegentDetailsPresenter extends Presenter<PrelegentDetailsView> {
 
     public void configureInformationRow(PrelegentDetailsViewInformationRow viewHolder) {
         if (prelegent != null) {
-            viewHolder.displayPhoto( prelegent.getUrlPersonImage());
+            viewHolder.displayPhoto(prelegent.getUrlPersonImage());
             viewHolder.displayName(prelegent.getName());
             viewHolder.displayDescription(prelegent.getInformation());
             viewHolder.displaySurname(prelegent.getSurname());

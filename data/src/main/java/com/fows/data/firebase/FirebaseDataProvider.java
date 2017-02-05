@@ -7,9 +7,11 @@ import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -40,15 +42,19 @@ public class FirebaseDataProvider implements PrelegentGateway {
                 firebaseDatabase.getReference(com.fows.data.DbConstants.PRELEGENTS_KEY).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        List<Prelegent> prelegentList = new ArrayList<>();
                         for (DataSnapshot templateDataSnapshot : dataSnapshot.getChildren()) {
                             PrelegentFirebaseModel prelegentFirebaseModel = templateDataSnapshot.getValue(PrelegentFirebaseModel.class);
-                            prelegentFirebaseModel.getFirstName();
-                            prelegentFirebaseModel.getLastName();
+                            prelegentList.add(new Prelegent(prelegentFirebaseModel.getId(),
+                                    prelegentFirebaseModel.getFirstName(),
+                                    prelegentFirebaseModel.getLastName()));
                         }
+                        emitter.onSuccess(prelegentList);
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
+                        emitter.onError(new DatabaseException(databaseError.getMessage()));
                         Log.d(FirebaseDataProvider.class.getSimpleName(), databaseError.getDetails());
                     }
                 });

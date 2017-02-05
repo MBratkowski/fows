@@ -8,6 +8,7 @@ final JAVAX_VERSION = '1.0'
 final CIRCLE_IMAGE_VIEW_VERSION = '2.1.0'
 final JUNIT_VERSION = '4.12'
 final CONSTRAINT_LAYOUT_VERSION = '1.0.0-beta4'
+final SUPER_RECYCLER_VIEW_VERSION = '1.1.4'
 
 ext.deps = [// ###############################################################################################
             // ###############       APP DEPENDENCIES
@@ -27,6 +28,7 @@ ext.deps = [// #################################################################
 
             cricle_image_view    : "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VIEW_VERSION",
             junit                : "junit:junit:$JUNIT_VERSION",
+            super_recycler       : "com.malinskiy:superrecyclerview:$SUPER_RECYCLER_VIEW_VERSION",
 
             dagger2              : "com.google.dagger:dagger:$DAGGER_VERSION",
             dagger2_compiler     : "com.google.dagger:dagger-compiler:$DAGGER_VERSION",
