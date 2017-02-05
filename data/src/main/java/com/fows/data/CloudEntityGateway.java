@@ -1,5 +1,6 @@
 package com.fows.data;
 
+import com.fows.data.firebase.FirebaseDataProvider;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 
