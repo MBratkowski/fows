@@ -5,6 +5,7 @@ import com.fows.entity.Prelegent;
 import com.fows.view.PrelegentListRowView;
 import com.fows.view.PrelegentListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
 public class PrelegentListPresenter extends Presenter<PrelegentListView> {
 
     private final UseCaseFactory factory;
-    private List<Prelegent> prelegents;
+    private List<Prelegent> prelegents = new ArrayList<>();
 
     public PrelegentListPresenter(UseCaseFactory factory) {
         this.factory = factory;

@@ -3,8 +3,6 @@ general:
     only:
       - master # list of branches to build
       - develop
-      - /feature\/.*/
-      - /bugfix\/.*/
       - /release\/.*/
 ## Customize the test machine
 machine:

@@ -5,9 +5,9 @@ import com.fows.gateway.PrelegentGateway;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
-import io.reactivex.SingleOnSubscribe;
 
 /**
  * Created by mateuszbratkowski on 05.02.2017.
@@ -16,6 +16,7 @@ public class CloudEntityGateway implements PrelegentGateway {
 
     public final FirebaseDataProvider firebaseDataProvider;
 
+    @Inject
     public CloudEntityGateway(FirebaseDataProvider firebaseDataProvider) {
         this.firebaseDataProvider = firebaseDataProvider;
     }

@@ -1,5 +1,7 @@
 package com.fows.data;
 
+import android.util.Log;
+
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +44,7 @@ public class FirebaseDataProvider implements PrelegentGateway {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
+                        Log.d(FirebaseDataProvider.class.getSimpleName(), databaseError.getDetails());
                     }
                 });
             }
