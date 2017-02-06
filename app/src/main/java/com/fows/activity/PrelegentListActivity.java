@@ -12,19 +12,23 @@ import com.fows.di.comoponent.ActivityComponent;
 import com.fows.di.module.PrelegentListModule;
 import com.fows.navigator.Navigator;
 import com.fows.presenter.PrelegentListPresenter;
+import com.fows.view.LoadingView;
 import com.fows.view.PrelegentListView;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView> implements PrelegentListView {
+public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView>
+        implements PrelegentListView, LoadingView {
 
     @BindView(R.id.prelegent_recycler_view)
     RecyclerView prelegentsRecyclerView;
 
     @Inject
     PrelegentListPresenter presenter;
+
+    private PrelegentAdapter adapter;
 
     @Override
     public void showError() {
@@ -43,7 +47,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     public void hideLoading() {
-        //TODO
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -60,10 +64,17 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupRecyclerView();
+        getPresenter().attachLoadingView(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        getPresenter().dettachLoadingView();
+        super.onDestroy();
     }
 
     private void setupRecyclerView() {
-        PrelegentAdapter adapter = new PrelegentAdapter(presenter);
+        adapter = new PrelegentAdapter(presenter);
         prelegentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         prelegentsRecyclerView.setHasFixedSize(true);
         prelegentsRecyclerView.setAdapter(adapter);

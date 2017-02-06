@@ -1,8 +1,8 @@
 package com.fows.di.module;
 
 import android.app.Application;
-import android.content.Context;
 
+import com.fows.data.CloudEntityGateway;
 import com.fows.gateway.PrelegentGateway;
 import com.squareup.picasso.Picasso;
 
@@ -11,7 +11,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import data.prelegent.PrelegentClient;
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -50,8 +49,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public PrelegentGateway providePrelegentGateway(PrelegentClient prelegentClient) {
-        return prelegentClient;
+    public PrelegentGateway providePrelegentGateway(CloudEntityGateway cloudEntityGateway) {
+        return cloudEntityGateway;
     }
 
     @Provides

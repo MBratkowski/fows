@@ -11,7 +11,6 @@ import com.fows.R;
 import com.fows.presenter.PrelegentDetailsPresenter;
 import com.fows.view.PrelegentDetailsViewInformationRow;
 import com.fows.view.PrelegentDetailsViewPresentationRow;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

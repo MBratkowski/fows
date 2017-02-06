@@ -3,7 +3,6 @@ apply plugin: 'me.tatarka.retrolambda'
 apply from: '../config/dependencies.gradle'
 apply from: '../config/quality/pmd.gradle'
 apply from: '../config/quality/checkstyle.gradle'
-apply from: '../config/quality/findbugs.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

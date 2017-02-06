@@ -34,7 +34,6 @@ public class Prelegent {
             return this;
         }
 
-
         public Builder information(String information) {
             this.information = information;
             return this;
@@ -59,6 +58,13 @@ public class Prelegent {
     private List<Presentation> presentations;
 
     public Prelegent() {
+        //Here is the empty constructor
+    }
+
+    public Prelegent(int id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
     }
 
     public Prelegent(Builder builder) {

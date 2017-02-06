@@ -40,8 +40,10 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
         }
 
         @Override
-        public void displayPhoto( String urlPhoto) {
-            //picasso.load(urlPhoto).into(prelegentCircleImageView);
+        public void displayPhoto(String urlPhoto) {
+            Picasso.with(prelegentCircleImageView.getContext())
+                    .load(urlPhoto)
+                    .into(prelegentCircleImageView);
         }
 
         @Override

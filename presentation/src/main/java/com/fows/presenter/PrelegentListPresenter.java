@@ -2,29 +2,40 @@ package com.fows.presenter;
 
 import com.fows.UseCaseFactory;
 import com.fows.entity.Prelegent;
+import com.fows.view.LoadingView;
 import com.fows.view.PrelegentListRowView;
 import com.fows.view.PrelegentListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by mateusz.bratkowski on 13/11/16.
  */
-public class PrelegentListPresenter extends Presenter<PrelegentListView> {
+public class PrelegentListPresenter extends BasePresenter<PrelegentListView> {
 
     private final UseCaseFactory factory;
-    private List<Prelegent> prelegents;
+
+    private LoadingView loadingView;
+    private List<Prelegent> prelegents = new ArrayList<>();
 
     public PrelegentListPresenter(UseCaseFactory factory) {
         this.factory = factory;
     }
 
     @Override
-    protected void onViewTaken(PrelegentListView view) {
-        this.view.showLoading();
+    protected void onAttachedView(PrelegentListView view) {
         factory.getPrelegentsListUseCase()
                 .execute()
                 .subscribe(this::onPrelegentListFetchSuccess, this::onPrelegentListFetchError);
+    }
+
+    public void attachLoadingView(LoadingView loadingView) {
+        this.loadingView = loadingView;
+    }
+
+    public void dettachLoadingView() {
+        this.loadingView = null;
     }
 
     public int getPrelegentsCount() {
@@ -42,8 +53,8 @@ public class PrelegentListPresenter extends Presenter<PrelegentListView> {
     }
 
     private void onPrelegentListFetchSuccess(List<Prelegent> prelegents) {
-        view.hideLoading();
         this.prelegents = prelegents;
+        loadingView.hideLoading();
     }
 
     private void onPrelegentListFetchError(Throwable throwable) {
