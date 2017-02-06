@@ -42,7 +42,7 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
 
     @Override
     public void showLoading() {
-
+        //TODO
     }
 
     @Override

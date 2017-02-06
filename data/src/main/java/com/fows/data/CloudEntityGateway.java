@@ -15,7 +15,7 @@ import io.reactivex.Single;
  */
 public class CloudEntityGateway implements PrelegentGateway {
 
-    public final FirebaseDataProvider firebaseDataProvider;
+    private final FirebaseDataProvider firebaseDataProvider;
 
     @Inject
     public CloudEntityGateway(FirebaseDataProvider firebaseDataProvider) {

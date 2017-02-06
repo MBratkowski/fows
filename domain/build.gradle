@@ -1,7 +1,6 @@
 apply plugin: 'java'
 apply from: '../config/dependencies.gradle'
 apply from: '../config/quality/pmd.gradle'
-apply from: '../config/quality/findbugs.gradle'
 apply from: '../config/quality/checkstyle.gradle'
 
 dependencies {

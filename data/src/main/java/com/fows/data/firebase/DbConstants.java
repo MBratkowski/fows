@@ -1,4 +1,4 @@
-package com.fows.data;
+package com.fows.data.firebase;
 
 /**
  * Created by mateuszbratkowski on 05.02.2017.
@@ -6,4 +6,8 @@ package com.fows.data;
 public final class DbConstants {
 
     public static final String PRELEGENTS_KEY = "prelegents";
+
+    private DbConstants() {
+        throw new UnsupportedOperationException("No instances");
+    }
 }

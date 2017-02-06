@@ -1,4 +1,9 @@
 apply plugin: 'com.android.library'
+apply from: '../config/dependencies.gradle'
+apply from: '../config/quality/findbugs.gradle'
+apply from: '../config/quality/pmd.gradle'
+apply from: '../config/quality/checkstyle.gradle'
+apply from: '../config/quality/lint.gradle'
 
 android {
     compileSdkVersion 25

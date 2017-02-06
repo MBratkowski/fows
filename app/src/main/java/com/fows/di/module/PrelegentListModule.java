@@ -1,10 +1,8 @@
 package com.fows.di.module;
 
 import com.fows.UseCaseFactory;
-import com.fows.di.scope.ActivityScope;
 import com.fows.di.scope.PerView;
 import com.fows.presenter.PrelegentListPresenter;
-import com.squareup.picasso.Picasso;
 
 import dagger.Module;
 import dagger.Provides;

@@ -2,7 +2,6 @@ package com.fows.data.firebase;
 
 import android.util.Log;
 
-import com.fows.data.DbConstants;
 import com.fows.data.firebase.model.PrelegentFirebaseModel;
 import com.fows.entity.Prelegent;
 import com.fows.gateway.PrelegentGateway;
@@ -40,7 +39,7 @@ public class FirebaseDataProvider implements PrelegentGateway {
         return Single.create(new SingleOnSubscribe<List<Prelegent>>() {
             @Override
             public void subscribe(final SingleEmitter<List<Prelegent>> emitter) throws Exception {
-                firebaseDatabase.getReference(com.fows.data.DbConstants.PRELEGENTS_KEY).addValueEventListener(new ValueEventListener() {
+                firebaseDatabase.getReference(DbConstants.PRELEGENTS_KEY).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         List<Prelegent> prelegentList = new ArrayList<>();

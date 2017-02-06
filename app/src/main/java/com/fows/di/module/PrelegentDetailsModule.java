@@ -4,10 +4,8 @@ import android.content.Intent;
 
 import com.fows.UseCaseFactory;
 import com.fows.activity.PrelegentDetailsActivity;
-import com.fows.di.scope.ActivityScope;
 import com.fows.di.scope.PerView;
 import com.fows.presenter.PrelegentDetailsPresenter;
-import com.squareup.picasso.Picasso;
 
 import javax.inject.Named;
 

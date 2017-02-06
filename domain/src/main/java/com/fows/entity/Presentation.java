@@ -24,12 +24,12 @@ public class Presentation {
         }
     }
 
+    private final String theme;
+    private final String description;
+    private final String startTime;
+    private final float rating;
     private String author;
-    private String theme;
-    private String description;
-    private String startTime;
     private boolean isLiked;
-    private float rating;
 
     public Presentation(Builder builder) {
         author = builder.author;

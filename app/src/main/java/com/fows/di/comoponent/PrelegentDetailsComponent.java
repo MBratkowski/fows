@@ -2,7 +2,6 @@ package com.fows.di.comoponent;
 
 import com.fows.activity.PrelegentDetailsActivity;
 import com.fows.di.module.PrelegentDetailsModule;
-import com.fows.di.scope.ActivityScope;
 import com.fows.di.scope.PerView;
 
 import dagger.Subcomponent;
