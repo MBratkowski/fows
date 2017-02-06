@@ -47,7 +47,8 @@ public class FirebaseDataProvider implements PrelegentGateway {
                             PrelegentFirebaseModel prelegentFirebaseModel = templateDataSnapshot.getValue(PrelegentFirebaseModel.class);
                             prelegentList.add(new Prelegent(prelegentFirebaseModel.getId(),
                                     prelegentFirebaseModel.getFirstName(),
-                                    prelegentFirebaseModel.getLastName()));
+                                    prelegentFirebaseModel.getLastName(),
+                                    prelegentFirebaseModel.getImageUrl()));
                         }
                         emitter.onSuccess(prelegentList);
                     }
@@ -75,7 +76,8 @@ public class FirebaseDataProvider implements PrelegentGateway {
                                 PrelegentFirebaseModel firebaseModel = dataSnapshot.getValue(PrelegentFirebaseModel.class);
                                 emitter.onSuccess(new Prelegent(firebaseModel.getId(),
                                         firebaseModel.getFirstName(),
-                                        firebaseModel.getLastName()));
+                                        firebaseModel.getLastName(),
+                                        firebaseModel.getImageUrl()));
                             }
 
                             @Override

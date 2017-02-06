@@ -16,6 +16,9 @@ public class PrelegentFirebaseModel {
     @PropertyName("id")
     int id;
 
+    @PropertyName("image_url")
+    String imageUrl;
+
     public PrelegentFirebaseModel() {
         //Here must be empty constructor for JSON deserialization by Firebase
     }
@@ -30,5 +33,9 @@ public class PrelegentFirebaseModel {
 
     public int getId() {
         return id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
