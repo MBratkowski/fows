@@ -17,7 +17,7 @@ import io.reactivex.SingleTransformer;
 /**
  * Created by mateusz.bratkowski on 23/11/16.
  */
-public final class FowsRxTransformerProvider {
+public class FowsRxTransformerProvider {
 
     private final Scheduler subscribeOnScheduler;
     private final Scheduler observerOnScheduler;

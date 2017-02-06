@@ -15,8 +15,6 @@ import java.util.List;
 public class PrelegentListPresenter extends BasePresenter<PrelegentListView> {
 
     private final UseCaseFactory factory;
-
-    private LoadingView loadingView;
     private List<Prelegent> prelegents = new ArrayList<>();
 
     public PrelegentListPresenter(UseCaseFactory factory) {
@@ -28,14 +26,6 @@ public class PrelegentListPresenter extends BasePresenter<PrelegentListView> {
         factory.getPrelegentsListUseCase()
                 .execute()
                 .subscribe(this::onPrelegentListFetchSuccess, this::onPrelegentListFetchError);
-    }
-
-    public void attachLoadingView(LoadingView loadingView) {
-        this.loadingView = loadingView;
-    }
-
-    public void dettachLoadingView() {
-        this.loadingView = null;
     }
 
     public int getPrelegentsCount() {
@@ -54,7 +44,7 @@ public class PrelegentListPresenter extends BasePresenter<PrelegentListView> {
 
     private void onPrelegentListFetchSuccess(List<Prelegent> prelegents) {
         this.prelegents = prelegents;
-        loadingView.hideLoading();
+        view.hideLoading();
     }
 
     private void onPrelegentListFetchError(Throwable throwable) {

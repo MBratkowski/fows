@@ -20,7 +20,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 
 public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, PrelegentListView>
-        implements PrelegentListView, LoadingView {
+        implements PrelegentListView {
 
     @BindView(R.id.prelegent_recycler_view)
     RecyclerView prelegentsRecyclerView;
@@ -64,12 +64,10 @@ public class PrelegentListActivity extends BaseActivity<PrelegentListPresenter, 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupRecyclerView();
-        getPresenter().attachLoadingView(this);
     }
 
     @Override
     protected void onDestroy() {
-        getPresenter().dettachLoadingView();
         super.onDestroy();
     }
 

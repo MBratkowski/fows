@@ -7,6 +7,10 @@ apply from: '../config/quality/checkstyle.gradle'
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':domain')
+
+    testCompile deps.junit
+    testCompile deps.mockito
+    testCompile deps.rx_java
 }
 
 sourceCompatibility = config.sourceCompatibility
