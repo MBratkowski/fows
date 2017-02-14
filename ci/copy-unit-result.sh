@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 mkdir -p $CIRCLE_ARTIFACTS/app/reports/lint
 mkdir -p $CIRCLE_ARTIFACTS/app/reports/findbugs
 mkdir -p $CIRCLE_ARTIFACTS/app/reports/checkstyle

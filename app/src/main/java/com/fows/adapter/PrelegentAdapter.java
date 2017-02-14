@@ -43,6 +43,7 @@ public class PrelegentAdapter extends RecyclerView.Adapter<PrelegentAdapter.Prel
         public void displayPhoto(String urlPhoto) {
             Picasso.with(prelegentCircleImageView.getContext())
                     .load(urlPhoto)
+                    .resize(100, 100)
                     .into(prelegentCircleImageView);
         }
 

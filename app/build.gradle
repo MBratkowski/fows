@@ -21,10 +21,14 @@ android {
         versionCode 1
         versionName "0.1"
 
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
         jackOptions {
             enabled false
         }
     }
+
+
 
     buildTypes {
         release {
@@ -50,17 +54,31 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:25.1.1'
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(":presentation")
     compile project(":data")
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.2', {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
     })
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
 
     testCompile deps.junit
 
+    compile 'com.android.support:support-annotations:25.1.1'
     compile deps.appcompat_v7
     compile deps.support_v4
     compile deps.recyclerview_v7
