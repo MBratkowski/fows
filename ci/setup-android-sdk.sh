@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 echo y | android update sdk --no-ui --all --filter "tools,build-tools-25,platform-tools"
 echo y | android update sdk --no-ui --all --filter "android-25"
 echo y | android update sdk --no-ui --all --filter "build-tools-25.0.1"

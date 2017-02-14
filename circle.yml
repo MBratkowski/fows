@@ -29,6 +29,7 @@ dependencies:
   post:
     - ./gradlew assembleDebug
     - ./gradlew check
+    - sh ./ci/copy-unit-result.sh
 
 ## Customize test commands
 test:
